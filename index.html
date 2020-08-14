@@ -223,6 +223,24 @@
 <p>并且ip相同</p>
 <p>192.168.0.134 = 192.168.0.134</p>
 <p>，此时定义为同一个设备</p>
+<h2 id="7-遇到的问题和解决问题"><a href="#7-遇到的问题和解决问题" class="headerlink" title="7. 遇到的问题和解决问题"></a>7. 遇到的问题和解决问题</h2><p>  我的思路是这样的，</p>
+<h3 id="如何根据ua取出-Linux-U-Android-6-0-HL2001-Build-MRA58K-wv-rv-29201-zh-CH"><a href="#如何根据ua取出-Linux-U-Android-6-0-HL2001-Build-MRA58K-wv-rv-29201-zh-CH" class="headerlink" title="* 如何根据ua取出 (Linux; U; Android 6.0; HL2001 Build/MRA58K; wv ;rv:29201 ;zh-CH)"></a>* 如何根据ua取出 (Linux; U; Android 6.0; HL2001 Build/MRA58K; wv ;rv:29201 ;zh-CH)</h3><pre><code>        - 方法是匹配第一个&quot;(&quot;    &quot;)&quot;  这里可以使用正则匹配也可以使用字符串查找。我选择使用字符串匹配，因为我批量导出ua时发现，有些媒体传输过程中，会将（）html转码 &amp;#40; 和 &amp;#41;</code></pre>
+<h3 id="哪些是有效信息如何提取"><a href="#哪些是有效信息如何提取" class="headerlink" title="* 哪些是有效信息如何提取?"></a>* 哪些是有效信息如何提取?</h3><pre><code>          - Linux; U; Android 6.0; HL2001 Build/MRA58K; wv ;rv:29201 ;zh-CH 假装第一步 我们已经取到了字符串
+          - 这是一个比较典型和全面的system-information ，这里HL2001 Build/MRA58K 是设备型号，Android 6.0是操作系统版本 对于我们来说只有这两个 数据有用。
+          - 第一件事，我先将空格去掉  `Linux;U;Android6.0;HL2001Build/MRA58K;wv;rv:29201;zh-CH` 去掉空格是为了避免不同浏览器，空格位置不同对查询产生影响
+          - 按照国际惯例将 字符串按照 ; 分成数组
+          - `[&#39;Linux&#39;,&#39;U&#39;,&#39;Android6.0&#39;,&#39;HL2001Build/MRA58K&#39;,&#39;wv&#39;,&#39;rv:29201&#39;,&#39;zh-CH&#39;]`
+          - 然后删除一些不必要的字符串 1.长度小于 3 的直接删除 , 2. zh开头的直接删除（因为会有 zh.ch zh-Ch等版本吧）3.rv开头的直接删除。（rv:29201 这个信息并不是每个浏览器ua都带有的） 4. Linux 删除 （这一步不一定有必要。原因是，安卓手机基本上都有这个标示，ios基本都是 iphone 所以这个字段没有用。再有是觉得变量越少，可能存在的问题就越少） 
+          - 上一步之后 数组变成`[&#39;Android6.0&#39;,&#39;HL2001Build/MRA58K&#39;]` 
+          - 这一步是将数组按照长度排序，大-&gt;小 `[&#39;HL2001Build/MRA58K&#39;,&#39;Android6.0&#39;]`  进一步减少位置因素对查询造成影响
+          - 最后为了sql查询方便 再将其拼接成 字符串&#39;HL2001Build/MRA58K;Android6.0&#39;</code></pre>
+<h3 id="发现部分ua中的版本号-尤其是ios-使用-标示。-比如-ios-13-0-10-gt-ios-13-0-10"><a href="#发现部分ua中的版本号-尤其是ios-使用-标示。-比如-ios-13-0-10-gt-ios-13-0-10" class="headerlink" title="* 发现部分ua中的版本号 尤其是ios 使用_标示。 比如 ios 13.0.10  -&gt; ios 13_0_10"></a>* 发现部分ua中的版本号 尤其是ios 使用_标示。 比如 ios 13.0.10  -&gt; ios 13_0_10</h3><pre><code>          - 在获取字符串时同时将文本里的 &quot;_&quot; 统一替换成 &quot;.&quot;</code></pre>
+<h3 id="go-在删除数组元素时，出现下标变化。"><a href="#go-在删除数组元素时，出现下标变化。" class="headerlink" title="* go 在删除数组元素时，出现下标变化。"></a>* go 在删除数组元素时，出现下标变化。</h3><pre><code>          - 个人 算法能力一般 
+          - `list  = append(list[:i] , list[i+1:]... )`  我采用这种方式进行数组元素删除
+          -  这时需要将。i - 1  因为将数组中i 删除 ， 也就是说 i+1 的  元素现在是 i 的位置，如果接着循环就会错过原i+1元素
+
+          - 举例  [ 0 ,1, 2, 3, 4, 5, 6] 此时i =3 执行操作后 数组变成 [ 0 ,1, 2, 4, 5, 6]
+          - 如果不处理i 继续循环 i++ 之后变为4  list[4] = 5  这是元素 4 并没有进入循环 所以要执行i-- 操作</code></pre>
         
           <a class="article-more-a" href="/year/08/12/%E8%81%8A%E8%81%8Aua/#more">more >></a>
         
