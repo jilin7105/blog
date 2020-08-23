@@ -16,7 +16,7 @@
 <meta property="og:description" content="题目说明给定范围 [m, n]，其中 0 &lt;&#x3D; m &lt;&#x3D; n &lt;&#x3D; 2147483647，返回此范围内所有数字的按位与（包含 m, n 两端点）。 示例 1:  输入: [5,7]输出: 4示例 2: 输入: [0,1]输出: 0 来源：力扣（LeetCode）链接：letcode地址 解题思路 求公共前缀 ， 在与操作中 可以知道   1&amp;0 &#x3D; 0   0&amp;0">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-23T13:39:52.000Z">
-<meta property="article:modified_time" content="2020-08-23T13:48:02.325Z">
+<meta property="article:modified_time" content="2020-08-23T13:50:20.809Z">
 <meta property="article:author" content="jilin7105">
 <meta property="article:tag" content="letcode;每日一道算法题">
 <meta name="twitter:card" content="summary">
@@ -187,6 +187,14 @@
 <li>将 m n 都进行 移位操作也就是除2取整 如果 m依旧 小于 n  则该位置有效 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def rangeBitwiseAnd(self, m: int, n: int) -&gt; int:</span><br><span class="line">        shift &#x3D; 0   </span><br><span class="line">        # 找到公共前缀</span><br><span class="line">        while m &lt; n:</span><br><span class="line">            m &#x3D; m &gt;&gt; 1</span><br><span class="line">            n &#x3D; n &gt;&gt; 1</span><br><span class="line">            shift +&#x3D; 1</span><br><span class="line">        return m &lt;&lt; shift</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>思路2 </li>
+<li>对 n到m之间的每个数进行与运算</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def rangeBitwiseAnd(self, m: int, n: int) -&gt; int:</span><br><span class="line">        while n &gt; m:</span><br><span class="line">            n &amp;&#x3D; n-1</span><br><span class="line">        return n</span><br></pre></td></tr></table></figure>
+
       
 
       

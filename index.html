@@ -187,6 +187,14 @@
 <li>将 m n 都进行 移位操作也就是除2取整 如果 m依旧 小于 n  则该位置有效 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def rangeBitwiseAnd(self, m: int, n: int) -&gt; int:</span><br><span class="line">        shift &#x3D; 0   </span><br><span class="line">        # 找到公共前缀</span><br><span class="line">        while m &lt; n:</span><br><span class="line">            m &#x3D; m &gt;&gt; 1</span><br><span class="line">            n &#x3D; n &gt;&gt; 1</span><br><span class="line">            shift +&#x3D; 1</span><br><span class="line">        return m &lt;&lt; shift</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>思路2 </li>
+<li>对 n到m之间的每个数进行与运算</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def rangeBitwiseAnd(self, m: int, n: int) -&gt; int:</span><br><span class="line">        while n &gt; m:</span><br><span class="line">            n &amp;&#x3D; n-1</span><br><span class="line">        return n</span><br></pre></td></tr></table></figure>
+
       
 
       
