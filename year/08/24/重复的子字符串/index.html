@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>24点游戏 | 要不要秀恩爱呢</title>
+  <title>459.重复的子字符串 | 要不要秀恩爱呢</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目说明你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，&#x2F;，+，-，(，) 的运算得到 24。 示例 1: 输入: [4, 1, 8, 7]输出: True解释: (8-4) * (7-1) &#x3D; 24示例 2: 输入: [1, 2, 1, 2]输出: False 来源：力扣（LeetCode）链接：letcode地址 解题思路 枚举所有排列组合的可能性，  如何使用递归   这里">
+  <meta name="description" content="题目说明给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。 示例 1: 输入: “abab” 输出: True 解释: 可由子字符串 “ab” 重复两次构成。示例 2: 输入: “aba” 输出: False示例 3: 输入: “abcabcabcabc” 输出: True 解释: 可由子字符串 “abc” 重复四次构成。 (">
 <meta property="og:type" content="article">
-<meta property="og:title" content="24点游戏">
-<meta property="og:url" content="http://yoursite.com/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/index.html">
+<meta property="og:title" content="459.重复的子字符串">
+<meta property="og:url" content="http://yoursite.com/year/08/24/%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="要不要秀恩爱呢">
-<meta property="og:description" content="题目说明你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，&#x2F;，+，-，(，) 的运算得到 24。 示例 1: 输入: [4, 1, 8, 7]输出: True解释: (8-4) * (7-1) &#x3D; 24示例 2: 输入: [1, 2, 1, 2]输出: False 来源：力扣（LeetCode）链接：letcode地址 解题思路 枚举所有排列组合的可能性，  如何使用递归   这里">
+<meta property="og:description" content="题目说明给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。 示例 1: 输入: “abab” 输出: True 解释: 可由子字符串 “ab” 重复两次构成。示例 2: 输入: “aba” 输出: False示例 3: 输入: “abcabcabcabc” 输出: True 解释: 可由子字符串 “abc” 重复四次构成。 (">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-08-22T14:54:46.000Z">
-<meta property="article:modified_time" content="2020-08-22T15:04:51.042Z">
+<meta property="article:published_time" content="2020-08-24T05:21:32.000Z">
+<meta property="article:modified_time" content="2020-08-24T05:45:58.658Z">
 <meta property="article:author" content="jilin7105">
 <meta property="article:tag" content="letcode;每日一道算法题">
 <meta name="twitter:card" content="summary">
@@ -155,42 +155,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-24点游戏" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-重复的子字符串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      24点游戏
+      459.重复的子字符串
     </h1>
   
 
         
-        <a href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/" class="archive-article-date">
-  	<time datetime="2020-08-22T14:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+        <a href="/year/08/24/%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
+  	<time datetime="2020-08-24T05:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，/，+，-，(，) 的运算得到 24。</p>
+        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。</p>
 <p>示例 1:</p>
-<p>输入: [4, 1, 8, 7]<br>输出: True<br>解释: (8-4) * (7-1) = 24<br>示例 2:</p>
-<p>输入: [1, 2, 1, 2]<br>输出: False</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/24-game">letcode地址</a></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
-<li><p>枚举所有排列组合的可能性，</p>
-</li>
-<li><p>如何使用递归 </p>
-</li>
-<li><p>这里主要是使用全枚举的思路， 创建减一方法subOne 作用是，当传入数组大于1时 ，取出 两个值 进行加减乘除 运算，将产生的新的数字，和 剩下的数字组成新的数组传入subOne ，如果list只剩下一个值，那么就是最后计算的结果，跟24比较大小。如果相等就跳出递归。</p>
-</li>
-<li><p>[4,1,8,7] =&gt; 1,4 进行 加减乘除  =&gt; 加的结果[5 , 7 ,8 ] =&gt; 5,7 进行加减乘除 =&gt;加的结果[12 ,8] =&gt;12 ,8 进行加减乘除 =&gt;加的结果[20] 不等于24 继续递归</p>
+<p>输入: “abab”</p>
+<p>输出: True</p>
+<p>解释: 可由子字符串 “ab” 重复两次构成。<br>示例 2:</p>
+<p>输入: “aba”</p>
+<p>输出: False<br>示例 3:</p>
+<p>输入: “abcabcabcabc”</p>
+<p>输出: True</p>
+<p>解释: 可由子字符串 “abc” 重复四次构成。 (或者子字符串 “abcabc” 重复两次构成。)</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-substring-pattern">letcode地址</a></p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>我脑子可能坏了，第一版解决方案</li>
+<li>就是循环这个字符串 每次递加一位  ，如 abab 第一次取出 a  第二次取出 ab </li>
+<li>把原来字符串中的对应值 替换成 “” 判断替换后的结果是不是空 ，如果是空可有多个重复字串构成 </li>
+<li>运行时间4124 ms</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        s_len &#x3D; len(s)</span><br><span class="line">        if s_len &lt;2 :</span><br><span class="line">            return False</span><br><span class="line">        for i in range(s_len&#x2F;&#x2F;2):</span><br><span class="line">            new_s &#x3D; s</span><br><span class="line">            new_s &#x3D; new_s.replace(s[:i+1] ,&quot;&quot;)         </span><br><span class="line">            if new_s &#x3D;&#x3D; &quot;&quot; :</span><br><span class="line">                return True</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>第二版 增加 判断 if s_len % (i+1) !=0 : continue  如果字符串是由重复字串构成，那么它的长度一定是这个字串长度的整数倍</li>
+<li>相较于第一次运行时间减少到 92 ms</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        s_len &#x3D; len(s)</span><br><span class="line">        if s_len &lt;2 :</span><br><span class="line">            return False</span><br><span class="line">        for i in range(s_len&#x2F;&#x2F;2):</span><br><span class="line">            new_s &#x3D; s</span><br><span class="line">            if s_len % (i+1) !&#x3D;0 : continue</span><br><span class="line">            new_s &#x3D; new_s.replace(s[:i+1] ,&quot;&quot;) </span><br><span class="line">            if new_s &#x3D;&#x3D; &quot;&quot; :</span><br><span class="line">                return True</span><br><span class="line"></span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+
+
+<ol>
+<li>第三版优化，把智障的 字符串替换， 换成 长度乘以次数 比如 abab 当取出ab时 ， 4/2 = 2   ab *2 = abab   </li>
+<li>运行时间缩短至52ms  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        s_len &#x3D; len(s)</span><br><span class="line">        if s_len &lt;2 :</span><br><span class="line">            return False</span><br><span class="line">        for i in range(s_len&#x2F;&#x2F;2):</span><br><span class="line"></span><br><span class="line">            if s_len % (i + 1) !&#x3D;0 : continue</span><br><span class="line">            time &#x3D; s_len &#x2F; (i + 1)</span><br><span class="line">        </span><br><span class="line">            if s[0:i+1] * int(time) &#x3D;&#x3D; s :</span><br><span class="line">                return True</span><br><span class="line"></span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgePoint24(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        return self.subOne(nums)</span><br><span class="line"></span><br><span class="line">    def subOne(self, nums):</span><br><span class="line">        num_len &#x3D; len(nums)</span><br><span class="line"></span><br><span class="line">        if num_len &#x3D;&#x3D; 1:</span><br><span class="line"></span><br><span class="line">            return abs(nums[0] - 24) &lt; 0.00001</span><br><span class="line"></span><br><span class="line">        for i in range(num_len):</span><br><span class="line">            for j in range(num_len):</span><br><span class="line"></span><br><span class="line">                if i &#x3D;&#x3D; j:</span><br><span class="line">                    continue</span><br><span class="line"></span><br><span class="line">                for f in range(5):</span><br><span class="line">                    clone_nums &#x3D; nums.copy()</span><br><span class="line">                    a &#x3D; clone_nums[i]</span><br><span class="line">                    b &#x3D; clone_nums[j]</span><br><span class="line">                    new_num &#x3D; self.action(a, b, f)</span><br><span class="line">                    if new_num is None :</span><br><span class="line">                        continue</span><br><span class="line">                    if i &gt;j :</span><br><span class="line">                        clone_nums.pop(i)</span><br><span class="line">                        clone_nums.pop(j)</span><br><span class="line">                    else :</span><br><span class="line">                        clone_nums.pop(j)</span><br><span class="line">                        clone_nums.pop(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    clone_nums +&#x3D; [new_num]</span><br><span class="line"></span><br><span class="line">                    s &#x3D; self.subOne(clone_nums)</span><br><span class="line">                    if s:</span><br><span class="line">                        return True</span><br><span class="line">                    else:</span><br><span class="line">                        continue</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    def action(self, a, b, type_):</span><br><span class="line">        if type_ &#x3D;&#x3D; 0:</span><br><span class="line">            return a + b</span><br><span class="line">        if type_ &#x3D;&#x3D; 1:</span><br><span class="line">            return a - b</span><br><span class="line">        if type_ &#x3D;&#x3D; 2:</span><br><span class="line">            return a * b</span><br><span class="line">        if type_ &#x3D;&#x3D; 3:</span><br><span class="line">            if b &#x3D;&#x3D; 0:</span><br><span class="line">                return None</span><br><span class="line">            return a &#x2F; b</span><br></pre></td></tr></table></figure>
+<ol>
+<li>第一次一道题优化到第四版 ，</li>
+<li>假如 abcabc 那么 我将 s*2  abcabcabc 同时去掉首位一位得到 bcabcabcab  ,如果它是由一位或以上的子串重复构成</li>
+<li>那么 原字符串应存在于 生成字符串中</li>
+<li>最终 37ms</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        return s in (s + s)[1:-1]</span><br></pre></td></tr></table></figure>
       
 
       
@@ -280,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/year/08/24/%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +319,9 @@
   
 <nav id="article-nav">
   
-    <a href="/year/08/23/%E6%95%B0%E5%AD%97%E8%8C%83%E5%9B%B4%E6%8C%89%E4%BD%8D%E4%B8%8E/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          201. 数字范围按位与
-        
-      </div>
-    </a>
   
-  
-    <a href="/year/08/22/%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">12.整数转罗马数字</div>
+    <a href="/year/08/23/%E6%95%B0%E5%AD%97%E8%8C%83%E5%9B%B4%E6%8C%89%E4%BD%8D%E4%B8%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">201. 数字范围按位与</div>
       <i class="icon-circle-right"></i>
     </a>
   
