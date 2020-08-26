@@ -155,6 +155,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-电话号码的字母组合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17.电话号码的字母组合</a>
+    </h1>
+  
+
+        
+        <a href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/" class="archive-article-date">
+  	<time datetime="2020-08-26T02:52:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。</p>
+<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
+<p>示例:</p>
+<p>输入：”23”<br>输出：[“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”].</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number">letcode地址</a></p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>暴力解法， 从第一个数开始枚举出所有所有字母的组合</li>
+<li>比如 2 3 4</li>
+<li>第一次循环  [a , b ,  c] </li>
+<li>第二次就是  [a , b ,  c] * [d , e ,  f]  =&gt;[“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”]</li>
+<li>第三次就是  [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”] * [“g”,”h”,”i”]</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    a &#x3D; &#123;</span><br><span class="line">            &quot;2&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],</span><br><span class="line">            &quot;3&quot;:[&quot;d&quot;,&#39;e&#39;,&#39;f&#39;],</span><br><span class="line">            &quot;4&quot;:[&quot;g&quot;,&quot;h&quot;,&quot;i&quot;],</span><br><span class="line">            &quot;5&quot;:[&quot;j&quot;,&quot;k&quot;,&quot;l&quot;],</span><br><span class="line">            &quot;6&quot;:[&quot;m&quot;,&quot;n&quot;,&quot;o&quot;],</span><br><span class="line">            &quot;7&quot;:[&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;],</span><br><span class="line">            &quot;8&quot;:[&quot;t&quot;,&quot;u&quot;,&quot;v&quot;],</span><br><span class="line">            &quot;9&quot;:[&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;],</span><br><span class="line">            &#125;</span><br><span class="line">    def letterCombinations(self, digits: str) -&gt; List[str]:</span><br><span class="line">       </span><br><span class="line">        len_s &#x3D; len(digits)</span><br><span class="line">        if len_s &lt; 1:</span><br><span class="line">            return []</span><br><span class="line">        tmp &#x3D; self.a[digits[0]]</span><br><span class="line"></span><br><span class="line">        return self.build(digits[1:],tmp)</span><br><span class="line"></span><br><span class="line">    def build(self , digits , tmp ) :</span><br><span class="line"></span><br><span class="line">        if digits &#x3D;&#x3D; &quot;&quot; :</span><br><span class="line">            return  tmp</span><br><span class="line"></span><br><span class="line">        arr &#x3D; self.a[digits[0]]</span><br><span class="line">        new_tmp &#x3D; []</span><br><span class="line">        for i in arr :</span><br><span class="line">         </span><br><span class="line">            for j in range(len(tmp)):</span><br><span class="line">                new_tmp.append(tmp[j] + i)</span><br><span class="line"></span><br><span class="line">        return self.build(digits[1:] , new_tmp )</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-递增子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -962,100 +1036,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/08/19/%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-有序链表转换二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/18/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">109.有序链表转换二叉搜索树</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/18/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-08-18T05:30:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。</p>
-<p>本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree">letcode地址</a></p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><p>给定的有序链表： [-10, -3, 0, 5, 9],</p>
-<p>一个可能的答案是：[0, -3, 9, -10, null, 5], 它可以表示下面这个高度平衡二叉搜索树：</p>
-<pre><code>  0
- / \</code></pre>
-<p>   -3   9<br>   /   /<br> -10  5</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><p>本人不擅长二叉树算法，所以初始思路采用 类似快速排序算法</p>
-<ol>
-<li><p>将链表转化成数组</p>
-</li>
-<li><p>进行递归，寻找中位数，如果列表长度为0时，返回None表示无子节点，如果列表长度为1 时返回 list[0]</p>
-</li>
-<li><p>排除特殊情况，（根据题目要求）中位数往左，小于中位数节点，应存在其左子树中， 同理 中位数往右大于中位数节点 存在于她的右子树中</p>
-</li>
-<li><p>递归操作</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># Definition for singly-linked list.</span><br><span class="line"># class ListNode:</span><br><span class="line">#     def __init__(self, val&#x3D;0, next&#x3D;None):</span><br><span class="line">#         self.val &#x3D; val</span><br><span class="line">#         self.next &#x3D; next</span><br><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, val&#x3D;0, left&#x3D;None, right&#x3D;None):</span><br><span class="line">#         self.val &#x3D; val</span><br><span class="line">#         self.left &#x3D; left</span><br><span class="line">#         self.right &#x3D; right</span><br><span class="line">class Solution:</span><br><span class="line">    def sortedListToBST(self, head: ListNode) -&gt; TreeNode:</span><br><span class="line"></span><br><span class="line">        head_list &#x3D; []</span><br><span class="line">        &#x2F;&#x2F;将链表转数组 </span><br><span class="line">        while head is not None :</span><br><span class="line">           head_list.append(TreeNode(val&#x3D;head.val))</span><br><span class="line">           head &#x3D; head.next</span><br><span class="line"></span><br><span class="line">        return self.buildTree(head_list)</span><br><span class="line">           </span><br><span class="line">    def buildTree ( self ,head_list) :</span><br><span class="line">        head_len  &#x3D;  len(head_list) </span><br><span class="line">        if head_len &lt; 1 :</span><br><span class="line">            &#x2F;&#x2F;小于1 表示无数据返回None</span><br><span class="line">            return None</span><br><span class="line">        if head_len &#x3D;&#x3D; 1 :</span><br><span class="line">            &#x2F;&#x2F;等于1 表示只有一个节点，无需排序 直接返回</span><br><span class="line">            return head_list[0]</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;寻找中位数</span><br><span class="line">        if   head_len % 2 &#x3D;&#x3D; 0:</span><br><span class="line">            pre &#x3D; head_len &#x2F; 2</span><br><span class="line">        else :</span><br><span class="line">            pre &#x3D; (head_len - 1)  &#x2F; 2</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">        pre &#x3D; int(pre)</span><br><span class="line">        &#x2F;&#x2F;递归操作</span><br><span class="line">        treenode &#x3D; head_list[pre] </span><br><span class="line">        treenode.left &#x3D; self.buildTree(head_list[0:pre])</span><br><span class="line">        treenode.right &#x3D; self.buildTree(head_list[pre+1:])</span><br><span class="line">        return treenode</span><br><span class="line">   </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/18/%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E8%BD%AC%E6%8D%A2%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">展开全文 >></a>
         </p>
       
 
