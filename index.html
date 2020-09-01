@@ -155,6 +155,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-预测赢家" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/01/%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/">486.预测赢家</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/01/%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/" class="archive-article-date">
+  	<time datetime="2020-09-01T08:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个表示分数的非负整数数组。 玩家 1 从数组任意一端拿取一个分数，随后玩家 2 继续从剩余数组任意一端拿取分数，然后玩家 1 拿，…… 。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。</p>
+<p>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
+<p> </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/predict-the-winner">https://leetcode-cn.com/problems/predict-the-winner</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1：</p>
+<p>输入：[1, 5, 2]<br>输出：False<br>解释：一开始，玩家1可以从1和2中进行选择。<br>如果他选择 2（或者 1 ），那么玩家 2 可以从 1（或者 2 ）和 5 中进行选择。如果玩家 2 选择了 5 ，那么玩家 1 则只剩下 1（或者 2 ）可选。<br>所以，玩家 1 的最终分数为 1 + 2 = 3，而玩家 2 为 5 。<br>因此，玩家 1 永远不会成为赢家，返回 False 。<br>示例 2：</p>
+<p>输入：[1, 5, 233, 7]<br>输出：True<br>解释：玩家 1 一开始选择 1 。然后玩家 2 必须从 5 和 7 中进行选择。无论玩家 2 选择了哪个，玩家 1 都可以选择 233 。<br>     最终，玩家 1（234 分）比玩家 2（12 分）获得更多的分数，所以返回 True，表示玩家 1 可以成为赢家。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>遍历每种情况取最大值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[int]) -&gt; bool:</span><br><span class="line"></span><br><span class="line">        def dfs(nums  ,type) :</span><br><span class="line"></span><br><span class="line">            if len(nums) &#x3D;&#x3D; 1 :</span><br><span class="line">                return nums[0] * type</span><br><span class="line">            else :</span><br><span class="line"></span><br><span class="line">                a &#x3D; nums[0] * type + dfs(nums[1:] , -type )</span><br><span class="line">                b &#x3D;  nums[-1] * type + dfs(nums[:-1] , -type)</span><br><span class="line">        </span><br><span class="line">                return  max(a* type,  b* type)  * type</span><br><span class="line">        return dfs(nums , 1 ) &gt;&#x3D; 0</span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>将偶数情况去除</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        if len(nums) %2 &#x3D;&#x3D; 0  :</span><br><span class="line">            return True</span><br><span class="line">        def dfs(nums  ,type) :</span><br><span class="line"></span><br><span class="line">            if len(nums) &#x3D;&#x3D; 1 :</span><br><span class="line">                return nums[0] * type</span><br><span class="line">            else :</span><br><span class="line"></span><br><span class="line">                a &#x3D; nums[0] * type + dfs(nums[1:] , -type )</span><br><span class="line">                b &#x3D;  nums[-1] * type + dfs(nums[:-1] , -type)</span><br><span class="line"></span><br><span class="line">                return  max(a* type,  b* type)  * type</span><br><span class="line">        return dfs(nums , 1 ) &gt;&#x3D; 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>动态规划</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        length &#x3D; len(nums)</span><br><span class="line">        dp &#x3D; [0] * length</span><br><span class="line">        for i, num in enumerate(nums):</span><br><span class="line">            dp[i] &#x3D; num</span><br><span class="line">        for i in range(length - 2, -1, -1):</span><br><span class="line">            for j in range(i + 1, length):</span><br><span class="line">                dp[j] &#x3D; max(nums[i] - dp[j], nums[j] - dp[j - 1])</span><br><span class="line">        return dp[length - 1] &gt;&#x3D; 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/01/%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-钥匙和房间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -947,94 +1041,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/08/23/%E6%95%B0%E5%AD%97%E8%8C%83%E5%9B%B4%E6%8C%89%E4%BD%8D%E4%B8%8E/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-24点游戏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/">24点游戏</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/" class="archive-article-date">
-  	<time datetime="2020-08-22T14:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，/，+，-，(，) 的运算得到 24。</p>
-<p>示例 1:</p>
-<p>输入: [4, 1, 8, 7]<br>输出: True<br>解释: (8-4) * (7-1) = 24<br>示例 2:</p>
-<p>输入: [1, 2, 1, 2]<br>输出: False</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/24-game">letcode地址</a></p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
-<li><p>枚举所有排列组合的可能性，</p>
-</li>
-<li><p>如何使用递归 </p>
-</li>
-<li><p>这里主要是使用全枚举的思路， 创建减一方法subOne 作用是，当传入数组大于1时 ，取出 两个值 进行加减乘除 运算，将产生的新的数字，和 剩下的数字组成新的数组传入subOne ，如果list只剩下一个值，那么就是最后计算的结果，跟24比较大小。如果相等就跳出递归。</p>
-</li>
-<li><p>[4,1,8,7] =&gt; 1,4 进行 加减乘除  =&gt; 加的结果[5 , 7 ,8 ] =&gt; 5,7 进行加减乘除 =&gt;加的结果[12 ,8] =&gt;12 ,8 进行加减乘除 =&gt;加的结果[20] 不等于24 继续递归</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgePoint24(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        return self.subOne(nums)</span><br><span class="line"></span><br><span class="line">    def subOne(self, nums):</span><br><span class="line">        num_len &#x3D; len(nums)</span><br><span class="line"></span><br><span class="line">        if num_len &#x3D;&#x3D; 1:</span><br><span class="line"></span><br><span class="line">            return abs(nums[0] - 24) &lt; 0.00001</span><br><span class="line"></span><br><span class="line">        for i in range(num_len):</span><br><span class="line">            for j in range(num_len):</span><br><span class="line"></span><br><span class="line">                if i &#x3D;&#x3D; j:</span><br><span class="line">                    continue</span><br><span class="line"></span><br><span class="line">                for f in range(5):</span><br><span class="line">                    clone_nums &#x3D; nums.copy()</span><br><span class="line">                    a &#x3D; clone_nums[i]</span><br><span class="line">                    b &#x3D; clone_nums[j]</span><br><span class="line">                    new_num &#x3D; self.action(a, b, f)</span><br><span class="line">                    if new_num is None :</span><br><span class="line">                        continue</span><br><span class="line">                    if i &gt;j :</span><br><span class="line">                        clone_nums.pop(i)</span><br><span class="line">                        clone_nums.pop(j)</span><br><span class="line">                    else :</span><br><span class="line">                        clone_nums.pop(j)</span><br><span class="line">                        clone_nums.pop(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    clone_nums +&#x3D; [new_num]</span><br><span class="line"></span><br><span class="line">                    s &#x3D; self.subOne(clone_nums)</span><br><span class="line">                    if s:</span><br><span class="line">                        return True</span><br><span class="line">                    else:</span><br><span class="line">                        continue</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    def action(self, a, b, type_):</span><br><span class="line">        if type_ &#x3D;&#x3D; 0:</span><br><span class="line">            return a + b</span><br><span class="line">        if type_ &#x3D;&#x3D; 1:</span><br><span class="line">            return a - b</span><br><span class="line">        if type_ &#x3D;&#x3D; 2:</span><br><span class="line">            return a * b</span><br><span class="line">        if type_ &#x3D;&#x3D; 3:</span><br><span class="line">            if b &#x3D;&#x3D; 0:</span><br><span class="line">                return None</span><br><span class="line">            return a &#x2F; b</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/">展开全文 >></a>
         </p>
       
 
