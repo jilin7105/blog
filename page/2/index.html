@@ -155,6 +155,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-重新安排行程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">重新安排行程</a>
+    </h1>
+  
+
+        
+        <a href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-08-27T09:37:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。</p>
+<p>说明:</p>
+<p>如果存在多种有效的行程，你可以按字符自然排序返回最小的行程组合。例如，行程 [“JFK”, “LGA”] 与 [“JFK”, “LGB”] 相比就更小，排序更靠前<br>所有的机场都用三个大写字母表示（机场代码）。<br>假定所有机票至少存在一种合理的行程。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reconstruct-itinerary">letcode地址</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
+<p>输入: [[“MUC”, “LHR”], [“JFK”, “MUC”], [“SFO”, “SJC”], [“LHR”, “SFO”]]<br>输出: [“JFK”, “MUC”, “LHR”, “SFO”, “SJC”]<br>示例 2:</p>
+<p>输入: [[“JFK”,”SFO”],[“JFK”,”ATL”],[“SFO”,”ATL”],[“ATL”,”JFK”],[“ATL”,”SFO”]]<br>输出: [“JFK”,”ATL”,”JFK”,”SFO”,”ATL”,”SFO”]<br>解释: 另一种有效的行程是 [“JFK”,”SFO”,”ATL”,”JFK”,”ATL”,”SFO”]。但是它自然排序更大更靠后。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>先生成字典</li>
+<li>对字典元素排序</li>
+<li>然后从’JFK’开始逐层搜索，每前进一层就减去一条路径</li>
+<li>直到某个节点不存通往其他节点的路径时，说明该节点就为此次行程的终点</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findItinerary(self, tickets: List[List[str]]) -&gt; List[str]:</span><br><span class="line">        import collections</span><br><span class="line">        d &#x3D; collections.defaultdict(list)   </span><br><span class="line">        for f, t in tickets:</span><br><span class="line">            d[f] +&#x3D; [t]  </span><br><span class="line"></span><br><span class="line">        for f in d:</span><br><span class="line">            d[f].sort()  </span><br><span class="line"></span><br><span class="line">        ans &#x3D; []</span><br><span class="line">        def dfs(f):  </span><br><span class="line">            while d[f]:</span><br><span class="line">                dfs(d[f].pop(0))             </span><br><span class="line">            ans.append(f)</span><br><span class="line"></span><br><span class="line">        dfs(&#39;JFK&#39;)</span><br><span class="line">        return ans[::-1]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-电话号码的字母组合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -961,100 +1049,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/08/20/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-回文子串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/19/%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">647. 回文子串</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/19/%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" class="archive-article-date">
-  	<time datetime="2020-08-19T06:04:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。</p>
-<p> </p>
-<p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindromic-substrings">letcode地址</a></p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><p>示例 1：</p>
-<p>输入：”abc”<br>输出：3<br>解释：三个回文子串: “a”, “b”, “c”<br>示例 2：</p>
-<p>输入：”aaa”<br>输出：6<br>解释：6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><p>解题1</p>
-<ol>
-<li>初始思路，判断字符串长度是不是小于2 ，如果小于 2 直接返回字符串长度</li>
-<li>首先，每个字符单独都是回文那么先设定，回文个数至少有M个， M等于字符串长度</li>
-<li>然后 使用双循环，判断每个子串是不是回文， 使用类似冒泡排序算法，</li>
-<li>如 abc  会取出 ab(0,1) abc(0,2) bc(1,2),直接 判断当前字符串和取反后字符串是否相等</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def countSubstrings(self, s: str) -&gt; int:</span><br><span class="line">        len_str &#x3D; len(s)</span><br><span class="line">        sum_res &#x3D; len_str</span><br><span class="line">        if len_str &lt; 2 :</span><br><span class="line">            return len_str</span><br><span class="line">        for i in range(len_str):</span><br><span class="line">            for j in range(i+1,len_str):</span><br><span class="line">                str_item &#x3D; s[i:j+1]</span><br><span class="line">                if str_item &#x3D;&#x3D; str_item[::-1]:</span><br><span class="line">                    sum_res +&#x3D; 1</span><br><span class="line">               </span><br><span class="line">        return sum_res</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/19/%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">展开全文 >></a>
         </p>
       
 
