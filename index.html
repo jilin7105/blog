@@ -155,6 +155,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前k个高频元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/07/%E5%89%8Dk%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/">前k个高频元素</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/07/%E5%89%8Dk%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/" class="archive-article-date">
+  	<time datetime="2020-09-07T04:54:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个非空的整数数组，返回其中出现频率前 k 高的元素。<br>来源：力扣（LeetCode）链接：<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/top-k-frequent-elements/">letcode地址</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
+<p>输入: nums = [1,1,1,2,2,3], k = 2<br>输出: [1,2]<br>示例 2:</p>
+<p>输入: nums = [1], k = 1<br>输出: [1]</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>其实很简单 ，就是单纯的把 数组写入列表里，变成 d[元素] = 次数</li>
+<li>然后把列表按照 次数排序</li>
+<li>最后取出前n位就行了</li>
+<li>可能主要考察的是 对dic 的排序，那就偷懒了吧，用内置函数好了</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def topKFrequent(self, nums: List[int], k: int) -&gt; List[int]:</span><br><span class="line">        d &#x3D; &#123;&#125;</span><br><span class="line">        for i in nums:</span><br><span class="line">            d[i] &#x3D; d.get(i, 0) + 1</span><br><span class="line"></span><br><span class="line">        c &#x3D; sorted(d.items(), key &#x3D; lambda x: (x[1], x[0]), reverse&#x3D;True)</span><br><span class="line">     </span><br><span class="line">        return list(map(lambda x:x[0], c))[:k]</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/07/%E5%89%8Dk%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="107.-二叉树的层次遍历" class="article article-type-107.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -921,94 +993,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/08/29/%E6%9C%80%E7%9F%AD%E5%9B%9E%E6%96%87%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-机器人是能否返回原点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/">657.机器人是能否返回原点</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-08-28T01:52:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>在二维平面上，有一个机器人从原点 (0, 0) 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在 (0, 0) 处结束。</p>
-<p>移动顺序由字符串表示。字符 move[i] 表示其第 i 次移动。机器人的有效动作有 R（右），L（左），U（上）和 D（下）。如果机器人在完成所有动作后返回原点，则返回 true。否则，返回 false。</p>
-<p>注意：机器人“面朝”的方向无关紧要。 “R” 将始终使机器人向右移动一次，“L” 将始终向左移动等。此外，假设每次移动机器人的移动幅度相同。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/robot-return-to-origin">letcode地址</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
-<p>输入: “UD”<br>输出: true<br>解释：机器人向上移动一次，然后向下移动一次。所有动作都具有相同的幅度，因此它最终回到它开始的原点。因此，我们返回 true。<br>示例 2:</p>
-<p>输入: “LL”<br>输出: false<br>解释：机器人向左移动两次。它最终位于原点的左侧，距原点有两次 “移动” 的距离。我们返回 false，因为它在移动结束时没有返回原点。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>第一 如果移动次数是奇数次 就无法回到终点，</li>
-<li>向上和向下的次数相同，向左和向右的次数相同 就可以到达终点</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgeCircle(self, moves: str) -&gt; bool:</span><br><span class="line">        info &#x3D; &#123;&quot;U&quot;:0,&quot;D&quot;:0,&quot;L&quot;:0,&quot;R&quot;:0,&#125;</span><br><span class="line">        if len(moves) % 2 !&#x3D; 0 :</span><br><span class="line">            return False </span><br><span class="line">        for i in moves :</span><br><span class="line">            info[i] +&#x3D; 1</span><br><span class="line">        </span><br><span class="line">        if info[&quot;U&quot;] &#x3D;&#x3D; info[&quot;D&quot;] and info[&quot;L&quot;] &#x3D;&#x3D; info[&quot;R&quot;] :</span><br><span class="line">            return True</span><br><span class="line">        else :</span><br><span class="line">            return False</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgeCircle(self, moves: str) -&gt; bool:</span><br><span class="line">        return moves.count(&#39;L&#39;)&#x3D;&#x3D;moves.count(&#39;R&#39;) and moves.count(&#39;U&#39;)&#x3D;&#x3D;moves.count(&#39;D&#39;)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/">展开全文 >></a>
         </p>
       
 
