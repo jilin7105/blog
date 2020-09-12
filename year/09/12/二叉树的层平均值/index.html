@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>要不要秀恩爱呢</title>
+  <title>二叉树的层平均值 | 要不要秀恩爱呢</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者很懒什么也没有留下">
-<meta property="og:type" content="website">
-<meta property="og:title" content="要不要秀恩爱呢">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="说明给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。来源：力扣（LeetCode）链接：letcode地址 示例示例 1： 输入：    3   &#x2F; \  9  20    &#x2F;  \   15   7输出：[3, 14.5, 11]解释：第 0 层的平均值是 3 ,  第1层是 14.5 , 第2层是 11 。因此返回 [3, 14.5, 11] 。 解 遍历二叉树，将val 按层形成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树的层平均值">
+<meta property="og:url" content="http://yoursite.com/year/09/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/index.html">
 <meta property="og:site_name" content="要不要秀恩爱呢">
-<meta property="og:description" content="作者很懒什么也没有留下">
+<meta property="og:description" content="说明给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。来源：力扣（LeetCode）链接：letcode地址 示例示例 1： 输入：    3   &#x2F; \  9  20    &#x2F;  \   15   7输出：[3, 14.5, 11]解释：第 0 层的平均值是 3 ,  第1层是 14.5 , 第2层是 11 。因此返回 [3, 14.5, 11] 。 解 遍历二叉树，将val 按层形成">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-12T03:43:49.000Z">
+<meta property="article:modified_time" content="2020-09-12T03:51:40.447Z">
 <meta property="article:author" content="jilin7105">
-<meta property="article:tag" content="懒">
+<meta property="article:tag" content="letcode;每日一道算法题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="要不要秀恩爱呢" type="application/atom+xml">
@@ -153,398 +155,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-表示数值的字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="637.-二叉树的层平均值" class="article article-type-637. " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/02/%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">表示数值的字符串</a>
+    <h1 class="article-title" itemprop="name">
+      二叉树的层平均值
     </h1>
   
 
         
-        <a href="/year/09/02/%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-  	<time datetime="2020-09-02T03:47:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-02</time>
+        <a href="/year/09/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/" class="archive-article-date">
+  	<time datetime="2020-09-12T03:43:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”、”5e2”、”-123”、”3.1416”、”-1E-16”、”0123”都表示数值，但”12e”、”1a3.14”、”1.2.3”、”+-5”及”12e+5.4”都不是。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof">https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li><p>emmmmmm</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isNumber(self, s: str) -&gt; bool:</span><br><span class="line">        try:</span><br><span class="line">            float(s)</span><br><span class="line">            return True</span><br><span class="line">        except:   </span><br><span class="line">            return False</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>正则判断 ，我太懒了</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isNumber(self, s: str) -&gt; bool:</span><br><span class="line">       return bool(re.fullmatch(r&#39;\s*[+-]?[0-9]*\.?[0-9]+(?:[eE][+-]?[0-9]+)?\s*&#39;, s)) | bool(re.fullmatch(r&#39;\s*[+-]?[0-9]+\.?[0-9]*(?:[eE][+-]?[0-9]+)?\s*&#39;, s))</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/02/%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-预测赢家" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/01/%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/">486.预测赢家</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/01/%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/" class="archive-article-date">
-  	<time datetime="2020-09-01T08:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个表示分数的非负整数数组。 玩家 1 从数组任意一端拿取一个分数，随后玩家 2 继续从剩余数组任意一端拿取分数，然后玩家 1 拿，…… 。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。</p>
-<p>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
-<p> </p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/predict-the-winner">https://leetcode-cn.com/problems/predict-the-winner</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。<br>来源：力扣（LeetCode）链接：<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/average-of-levels-in-binary-tree">letcode地址</a></p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1：</p>
-<p>输入：[1, 5, 2]<br>输出：False<br>解释：一开始，玩家1可以从1和2中进行选择。<br>如果他选择 2（或者 1 ），那么玩家 2 可以从 1（或者 2 ）和 5 中进行选择。如果玩家 2 选择了 5 ，那么玩家 1 则只剩下 1（或者 2 ）可选。<br>所以，玩家 1 的最终分数为 1 + 2 = 3，而玩家 2 为 5 。<br>因此，玩家 1 永远不会成为赢家，返回 False 。<br>示例 2：</p>
-<p>输入：[1, 5, 233, 7]<br>输出：True<br>解释：玩家 1 一开始选择 1 。然后玩家 2 必须从 5 和 7 中进行选择。无论玩家 2 选择了哪个，玩家 1 都可以选择 233 。<br>     最终，玩家 1（234 分）比玩家 2（12 分）获得更多的分数，所以返回 True，表示玩家 1 可以成为赢家。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>遍历每种情况取最大值</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[int]) -&gt; bool:</span><br><span class="line"></span><br><span class="line">        def dfs(nums  ,type) :</span><br><span class="line"></span><br><span class="line">            if len(nums) &#x3D;&#x3D; 1 :</span><br><span class="line">                return nums[0] * type</span><br><span class="line">            else :</span><br><span class="line"></span><br><span class="line">                a &#x3D; nums[0] * type + dfs(nums[1:] , -type )</span><br><span class="line">                b &#x3D;  nums[-1] * type + dfs(nums[:-1] , -type)</span><br><span class="line">        </span><br><span class="line">                return  max(a* type,  b* type)  * type</span><br><span class="line">        return dfs(nums , 1 ) &gt;&#x3D; 0</span><br></pre></td></tr></table></figure>
-
-
-<ol start="2">
-<li>将偶数情况去除</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        if len(nums) %2 &#x3D;&#x3D; 0  :</span><br><span class="line">            return True</span><br><span class="line">        def dfs(nums  ,type) :</span><br><span class="line"></span><br><span class="line">            if len(nums) &#x3D;&#x3D; 1 :</span><br><span class="line">                return nums[0] * type</span><br><span class="line">            else :</span><br><span class="line"></span><br><span class="line">                a &#x3D; nums[0] * type + dfs(nums[1:] , -type )</span><br><span class="line">                b &#x3D;  nums[-1] * type + dfs(nums[:-1] , -type)</span><br><span class="line"></span><br><span class="line">                return  max(a* type,  b* type)  * type</span><br><span class="line">        return dfs(nums , 1 ) &gt;&#x3D; 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>动态规划</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def PredictTheWinner(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        length &#x3D; len(nums)</span><br><span class="line">        dp &#x3D; [0] * length</span><br><span class="line">        for i, num in enumerate(nums):</span><br><span class="line">            dp[i] &#x3D; num</span><br><span class="line">        for i in range(length - 2, -1, -1):</span><br><span class="line">            for j in range(i + 1, length):</span><br><span class="line">                dp[j] &#x3D; max(nums[i] - dp[j], nums[j] - dp[j - 1])</span><br><span class="line">        return dp[length - 1] &gt;&#x3D; 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/01/%E9%A2%84%E6%B5%8B%E8%B5%A2%E5%AE%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-钥匙和房间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/31/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4/">841.钥匙和房间</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/31/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4/" class="archive-article-date">
-  	<time datetime="2020-08-31T10:08:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>有 N 个房间，开始时你位于 0 号房间。每个房间有不同的号码：0，1，2，…，N-1，并且房间里可能有一些钥匙能使你进入下一个房间。</p>
-<p>在形式上，对于每个房间 i 都有一个钥匙列表 rooms[i]，每个钥匙 rooms[i][j] 由 [0,1，…，N-1] 中的一个整数表示，其中 N = rooms.length。 钥匙 rooms[i][j] = v 可以打开编号为 v 的房间。</p>
-<p>最初，除 0 号房间外的其余所有房间都被锁住。</p>
-<p>你可以自由地在房间之间来回走动。</p>
-<p>如果能进入每个房间返回 true，否则返回 false。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/keys-and-rooms">letcode地址</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1：</p>
-<p>输入: [[1],[2],[3],[]]<br>输出: true<br>解释:<br>我们从 0 号房间开始，拿到钥匙 1。<br>之后我们去 1 号房间，拿到钥匙 2。<br>然后我们去 2 号房间，拿到钥匙 3。<br>最后我们去了 3 号房间。<br>由于我们能够进入每个房间，我们返回 true。</p>
-<p>示例 2：</p>
-<p>输入：[[1,3],[3,0,1],[2],[0]]<br>输出：false<br>解释：我们不能进入 2 号房间。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>每次进一个房间，就分别进入每个从当前房间获得钥匙的房间</li>
-<li>如果该钥匙对应 的房间没有被开启 ，将编号存入st中 </li>
-<li>最终判断st的长度是否和rooms的长度相等</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def canVisitAllRooms(self, rooms: List[List[int]]) -&gt; bool:</span><br><span class="line">        st &#x3D; set()</span><br><span class="line"></span><br><span class="line">        def dfs(n):</span><br><span class="line">            if n in st:</span><br><span class="line">                return </span><br><span class="line">            st.add(n)</span><br><span class="line">            for i in rooms[n]:</span><br><span class="line">                dfs(i)</span><br><span class="line"></span><br><span class="line">        dfs(0)</span><br><span class="line">        return len(rooms) &#x3D;&#x3D; len(st)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/31/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-反转字符串中的单词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/30/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/">557. 反转字符串中的单词 III</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/30/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/" class="archive-article-date">
-  	<time datetime="2020-08-30T14:52:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个字符串，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
-<p> </p>
-<p>示例：</p>
-<p>输入：”Let’s take LeetCode contest”<br>输出：”s’teL ekat edoCteeL tsetnoc”</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseWords(self, s: str) -&gt; str:</span><br><span class="line">        b &#x3D; s.split()</span><br><span class="line">        d &#x3D; &#39;&#39;</span><br><span class="line">        for i in b:</span><br><span class="line">            c &#x3D; i[::-1]</span><br><span class="line">            d &#x3D; d + c + &#39; &#39;</span><br><span class="line">        return d.rstrip()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/30/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-最短回文串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/29/%E6%9C%80%E7%9F%AD%E5%9B%9E%E6%96%87%E4%B8%B2/">最短回文串</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/29/%E6%9C%80%E7%9F%AD%E5%9B%9E%E6%96%87%E4%B8%B2/" class="archive-article-date">
-  	<time datetime="2020-08-29T05:56:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 s，你可以通过在字符串前面添加字符将其转换为回文串。找到并返回可以用这种方式转换的最短回文串。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-palindrome">letcode地址</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
-<p>输入: “aacecaaa”<br>输出: “aaacecaaa”<br>示例 2:</p>
-<p>输入: “abcd”<br>输出: “dcbabcd”</p>
+<p>输入：<br>    3<br>   / \<br>  9  20<br>    /  \<br>   15   7<br>输出：[3, 14.5, 11]<br>解释：<br>第 0 层的平均值是 3 ,  第1层是 14.5 , 第2层是 11 。因此返回 [3, 14.5, 11] 。</p>
 <h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
-<li>直接拼接字符串s的逆序串，判断是否是回文 2000ms+</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def shortestPalindrome(self, s: str) -&gt; str:</span><br><span class="line">        n &#x3D; len(s)</span><br><span class="line"></span><br><span class="line">        min_s &#x3D; &quot;&quot;</span><br><span class="line">        for i in range(n):</span><br><span class="line">            new_s &#x3D; s[i + 1:][::-1] + s</span><br><span class="line">            if new_s &#x3D;&#x3D; new_s[::-1]:</span><br><span class="line">                min_s &#x3D; new_s</span><br><span class="line"></span><br><span class="line">        return min_s</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>优化版 从尾部开始拼接 938ms+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def shortestPalindrome(self, s: str) -&gt; str:</span><br><span class="line">        n &#x3D; len(s)</span><br><span class="line">        if not s :</span><br><span class="line">            return s</span><br><span class="line">        for i in range(n):</span><br><span class="line">            new_s &#x3D; s[ n-i:][::-1] + s</span><br><span class="line"></span><br><span class="line">            if new_s &#x3D;&#x3D; new_s[::-1]:</span><br><span class="line">                return  new_s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<li>遍历二叉树，将val 按层形成 [sum,len]的格式<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def averageOfLevels(self, root: TreeNode) -&gt; List[float]:</span><br><span class="line">        res &#x3D; &#123;&#125;</span><br><span class="line">        def dfs(root ,ceng):</span><br><span class="line">            </span><br><span class="line">            if root is not None :</span><br><span class="line">                if ceng not in res :</span><br><span class="line">                    res[ceng] &#x3D; [0,0]</span><br><span class="line">                res[ceng][0] +&#x3D; root.val</span><br><span class="line">                res[ceng][1] +&#x3D; 1</span><br><span class="line">                dfs(root.left ,ceng+1)</span><br><span class="line">                dfs(root.right ,ceng+1)</span><br><span class="line">            else:</span><br><span class="line">                return </span><br><span class="line"></span><br><span class="line">        dfs(root,0)</span><br><span class="line">      </span><br><span class="line">        ave_ &#x3D; []</span><br><span class="line">        for k, v in res.items() :</span><br><span class="line">            ave_.append(v[0]&#x2F;v[1])</span><br><span class="line"></span><br><span class="line">        return ave_</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<ol>
-<li>第三次优化 提前翻转字符串 判断 s是否以reverse尾部相同 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def shortestPalindrome(self, s: str) -&gt; str:</span><br><span class="line">        reverse &#x3D; s[::-1]</span><br><span class="line">        for i in range(len(s) + 1):</span><br><span class="line">            if s.startswith(reverse[i:]):</span><br><span class="line">                return reverse[:i] + s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -564,16 +226,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/29/%E6%9C%80%E7%9F%AD%E5%9B%9E%E6%96%87%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/year/09/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/year/09/11/%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">组合总和3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -593,478 +314,14 @@
 
 
 
-
-  
-    <article id="post-机器人是能否返回原点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/">657.机器人是能否返回原点</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-08-28T01:52:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>在二维平面上，有一个机器人从原点 (0, 0) 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在 (0, 0) 处结束。</p>
-<p>移动顺序由字符串表示。字符 move[i] 表示其第 i 次移动。机器人的有效动作有 R（右），L（左），U（上）和 D（下）。如果机器人在完成所有动作后返回原点，则返回 true。否则，返回 false。</p>
-<p>注意：机器人“面朝”的方向无关紧要。 “R” 将始终使机器人向右移动一次，“L” 将始终向左移动等。此外，假设每次移动机器人的移动幅度相同。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/robot-return-to-origin">letcode地址</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
-<p>输入: “UD”<br>输出: true<br>解释：机器人向上移动一次，然后向下移动一次。所有动作都具有相同的幅度，因此它最终回到它开始的原点。因此，我们返回 true。<br>示例 2:</p>
-<p>输入: “LL”<br>输出: false<br>解释：机器人向左移动两次。它最终位于原点的左侧，距原点有两次 “移动” 的距离。我们返回 false，因为它在移动结束时没有返回原点。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>第一 如果移动次数是奇数次 就无法回到终点，</li>
-<li>向上和向下的次数相同，向左和向右的次数相同 就可以到达终点</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgeCircle(self, moves: str) -&gt; bool:</span><br><span class="line">        info &#x3D; &#123;&quot;U&quot;:0,&quot;D&quot;:0,&quot;L&quot;:0,&quot;R&quot;:0,&#125;</span><br><span class="line">        if len(moves) % 2 !&#x3D; 0 :</span><br><span class="line">            return False </span><br><span class="line">        for i in moves :</span><br><span class="line">            info[i] +&#x3D; 1</span><br><span class="line">        </span><br><span class="line">        if info[&quot;U&quot;] &#x3D;&#x3D; info[&quot;D&quot;] and info[&quot;L&quot;] &#x3D;&#x3D; info[&quot;R&quot;] :</span><br><span class="line">            return True</span><br><span class="line">        else :</span><br><span class="line">            return False</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgeCircle(self, moves: str) -&gt; bool:</span><br><span class="line">        return moves.count(&#39;L&#39;)&#x3D;&#x3D;moves.count(&#39;R&#39;) and moves.count(&#39;U&#39;)&#x3D;&#x3D;moves.count(&#39;D&#39;)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-重新安排行程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">重新安排行程</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-27T09:37:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。</p>
-<p>说明:</p>
-<p>如果存在多种有效的行程，你可以按字符自然排序返回最小的行程组合。例如，行程 [“JFK”, “LGA”] 与 [“JFK”, “LGB”] 相比就更小，排序更靠前<br>所有的机场都用三个大写字母表示（机场代码）。<br>假定所有机票至少存在一种合理的行程。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reconstruct-itinerary">letcode地址</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
-<p>输入: [[“MUC”, “LHR”], [“JFK”, “MUC”], [“SFO”, “SJC”], [“LHR”, “SFO”]]<br>输出: [“JFK”, “MUC”, “LHR”, “SFO”, “SJC”]<br>示例 2:</p>
-<p>输入: [[“JFK”,”SFO”],[“JFK”,”ATL”],[“SFO”,”ATL”],[“ATL”,”JFK”],[“ATL”,”SFO”]]<br>输出: [“JFK”,”ATL”,”JFK”,”SFO”,”ATL”,”SFO”]<br>解释: 另一种有效的行程是 [“JFK”,”SFO”,”ATL”,”JFK”,”ATL”,”SFO”]。但是它自然排序更大更靠后。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>先生成字典</li>
-<li>对字典元素排序</li>
-<li>然后从’JFK’开始逐层搜索，每前进一层就减去一条路径</li>
-<li>直到某个节点不存通往其他节点的路径时，说明该节点就为此次行程的终点</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findItinerary(self, tickets: List[List[str]]) -&gt; List[str]:</span><br><span class="line">        import collections</span><br><span class="line">        d &#x3D; collections.defaultdict(list)   </span><br><span class="line">        for f, t in tickets:</span><br><span class="line">            d[f] +&#x3D; [t]  </span><br><span class="line"></span><br><span class="line">        for f in d:</span><br><span class="line">            d[f].sort()  </span><br><span class="line"></span><br><span class="line">        ans &#x3D; []</span><br><span class="line">        def dfs(f):  </span><br><span class="line">            while d[f]:</span><br><span class="line">                dfs(d[f].pop(0))             </span><br><span class="line">            ans.append(f)</span><br><span class="line"></span><br><span class="line">        dfs(&#39;JFK&#39;)</span><br><span class="line">        return ans[::-1]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-电话号码的字母组合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17.电话号码的字母组合</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/" class="archive-article-date">
-  	<time datetime="2020-08-26T02:52:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。</p>
-<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
-<p>示例:</p>
-<p>输入：”23”<br>输出：[“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”].</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number">letcode地址</a></p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>暴力解法， 从第一个数开始枚举出所有所有字母的组合</li>
-<li>比如 2 3 4</li>
-<li>第一次循环  [a , b ,  c] </li>
-<li>第二次就是  [a , b ,  c] * [d , e ,  f]  =&gt;[“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”]</li>
-<li>第三次就是  [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”] * [“g”,”h”,”i”]</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    a &#x3D; &#123;</span><br><span class="line">            &quot;2&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],</span><br><span class="line">            &quot;3&quot;:[&quot;d&quot;,&#39;e&#39;,&#39;f&#39;],</span><br><span class="line">            &quot;4&quot;:[&quot;g&quot;,&quot;h&quot;,&quot;i&quot;],</span><br><span class="line">            &quot;5&quot;:[&quot;j&quot;,&quot;k&quot;,&quot;l&quot;],</span><br><span class="line">            &quot;6&quot;:[&quot;m&quot;,&quot;n&quot;,&quot;o&quot;],</span><br><span class="line">            &quot;7&quot;:[&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;],</span><br><span class="line">            &quot;8&quot;:[&quot;t&quot;,&quot;u&quot;,&quot;v&quot;],</span><br><span class="line">            &quot;9&quot;:[&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;],</span><br><span class="line">            &#125;</span><br><span class="line">    def letterCombinations(self, digits: str) -&gt; List[str]:</span><br><span class="line">       </span><br><span class="line">        len_s &#x3D; len(digits)</span><br><span class="line">        if len_s &lt; 1:</span><br><span class="line">            return []</span><br><span class="line">        tmp &#x3D; self.a[digits[0]]</span><br><span class="line"></span><br><span class="line">        return self.build(digits[1:],tmp)</span><br><span class="line"></span><br><span class="line">    def build(self , digits , tmp ) :</span><br><span class="line"></span><br><span class="line">        if digits &#x3D;&#x3D; &quot;&quot; :</span><br><span class="line">            return  tmp</span><br><span class="line"></span><br><span class="line">        arr &#x3D; self.a[digits[0]]</span><br><span class="line">        new_tmp &#x3D; []</span><br><span class="line">        for i in arr :</span><br><span class="line">         </span><br><span class="line">            for j in range(len(tmp)):</span><br><span class="line">                new_tmp.append(tmp[j] + i)</span><br><span class="line"></span><br><span class="line">        return self.build(digits[1:] , new_tmp )</span><br></pre></td></tr></table></figure>
-
-
-
-
-<ol>
-<li>简化一下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def letterCombinations(self, digits: str) -&gt; List[str]:</span><br><span class="line">        if not digits:return []</span><br><span class="line">        fang,tmp &#x3D; &#123;&quot;2&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],&quot;3&quot;:[&quot;d&quot;,&quot;e&quot;,&quot;f&quot;],&quot;4&quot;:[&quot;g&quot;,&quot;h&quot;,&quot;i&quot;],&quot;5&quot;:[&quot;j&quot;,&quot;k&quot;,&quot;l&quot;],&quot;6&quot;:[&quot;m&quot;,&quot;n&quot;,&quot;o&quot;],&quot;7&quot;:[&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;],&quot;8&quot;:[&quot;t&quot;,&quot;u&quot;,&quot;v&quot;],&quot;9&quot;:[&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]&#125;,[]</span><br><span class="line">        for i in range(len(digits)):</span><br><span class="line">            if i &#x3D;&#x3D; 0:  tmp &#x3D; fang[digits[i]]</span><br><span class="line">            else:       tmp &#x3D; [j+k for j in tmp for k in fang[digits[i]]]</span><br><span class="line">        return tmp</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-递增子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/25/%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">491.递增子序列</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/25/%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-08-25T08:05:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。</p>
-<p>示例:</p>
-<p>输入: [4, 6, 7, 7]<br>输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]<br>说明:</p>
-<p>给定数组的长度不会超过15。<br>数组中的整数范围是 [-100,100]。<br>给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/increasing-subsequences">letcode地址</a></p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>举例<br>第一次遍历。4 6   4 7   4 7  此时 7  curPres[i]存在过 跳过<br>46 递归遍历 4 6 7  4 6 7  此时 7  curPres[i]存在过 跳过<br>467 递归   4 6 7 7 </li>
-</ol>
-<p>47 递归  477 </p>
-<p>第二位遍历 6 7  6 7  此时 7  curPres[i]存在过 跳过<br>如此循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findSubsequences(self, nums: List[int]) -&gt; List[List[int]]:</span><br><span class="line">        res &#x3D; []</span><br><span class="line"></span><br><span class="line">        def dfs(nums, tmp):</span><br><span class="line">            if len(tmp) &gt; 1:</span><br><span class="line">                res.append(tmp)</span><br><span class="line">            curPres &#x3D; defaultdict(int)</span><br><span class="line">            for inx, i in enumerate(nums):</span><br><span class="line">                if curPres[i]:</span><br><span class="line">                    continue</span><br><span class="line">                if not tmp or i &gt;&#x3D; tmp[-1]:</span><br><span class="line">                    curPres[i] &#x3D; 1</span><br><span class="line">                    dfs(nums[inx+1:], tmp+[i])</span><br><span class="line"></span><br><span class="line">        dfs(nums, [])</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/25/%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-重复的子字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/24/%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">459.重复的子字符串</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/24/%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-  	<time datetime="2020-08-24T05:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。</p>
-<p>示例 1:</p>
-<p>输入: “abab”</p>
-<p>输出: True</p>
-<p>解释: 可由子字符串 “ab” 重复两次构成。<br>示例 2:</p>
-<p>输入: “aba”</p>
-<p>输出: False<br>示例 3:</p>
-<p>输入: “abcabcabcabc”</p>
-<p>输出: True</p>
-<p>解释: 可由子字符串 “abc” 重复四次构成。 (或者子字符串 “abcabc” 重复两次构成。)</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-substring-pattern">letcode地址</a></p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>我脑子可能坏了，第一版解决方案</li>
-<li>就是循环这个字符串 每次递加一位  ，如 abab 第一次取出 a  第二次取出 ab </li>
-<li>把原来字符串中的对应值 替换成 “” 判断替换后的结果是不是空 ，如果是空可有多个重复字串构成 </li>
-<li>运行时间4124 ms</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        s_len &#x3D; len(s)</span><br><span class="line">        if s_len &lt;2 :</span><br><span class="line">            return False</span><br><span class="line">        for i in range(s_len&#x2F;&#x2F;2):</span><br><span class="line">            new_s &#x3D; s</span><br><span class="line">            new_s &#x3D; new_s.replace(s[:i+1] ,&quot;&quot;)         </span><br><span class="line">            if new_s &#x3D;&#x3D; &quot;&quot; :</span><br><span class="line">                return True</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
-
-
-<ol>
-<li>第二版 增加 判断 if s_len % (i+1) !=0 : continue  如果字符串是由重复字串构成，那么它的长度一定是这个字串长度的整数倍</li>
-<li>相较于第一次运行时间减少到 92 ms</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        s_len &#x3D; len(s)</span><br><span class="line">        if s_len &lt;2 :</span><br><span class="line">            return False</span><br><span class="line">        for i in range(s_len&#x2F;&#x2F;2):</span><br><span class="line">            new_s &#x3D; s</span><br><span class="line">            if s_len % (i+1) !&#x3D;0 : continue</span><br><span class="line">            new_s &#x3D; new_s.replace(s[:i+1] ,&quot;&quot;) </span><br><span class="line">            if new_s &#x3D;&#x3D; &quot;&quot; :</span><br><span class="line">                return True</span><br><span class="line"></span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
-
-
-<ol>
-<li>第三版优化，把智障的 字符串替换， 换成 长度乘以次数 比如 abab 当取出ab时 ， 4/2 = 2   ab *2 = abab   </li>
-<li>运行时间缩短至52ms  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        s_len &#x3D; len(s)</span><br><span class="line">        if s_len &lt;2 :</span><br><span class="line">            return False</span><br><span class="line">        for i in range(s_len&#x2F;&#x2F;2):</span><br><span class="line"></span><br><span class="line">            if s_len % (i + 1) !&#x3D;0 : continue</span><br><span class="line">            time &#x3D; s_len &#x2F; (i + 1)</span><br><span class="line">        </span><br><span class="line">            if s[0:i+1] * int(time) &#x3D;&#x3D; s :</span><br><span class="line">                return True</span><br><span class="line"></span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol>
-<li>第一次一道题优化到第四版 ，</li>
-<li>假如 abcabc 那么 我将 s*2  abcabcabc 同时去掉首位一位得到 bcabcabcab  ,如果它是由一位或以上的子串重复构成</li>
-<li>那么 原字符串应存在于 生成字符串中</li>
-<li>最终 37ms</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def repeatedSubstringPattern(self, s: str) -&gt; bool:</span><br><span class="line">        return s in (s + s)[1:-1]</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/24/%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1087,8 +344,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
