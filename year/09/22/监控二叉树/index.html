@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 要不要秀恩爱呢</title>
+  <title>监控二叉树 | 要不要秀恩爱呢</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者很懒什么也没有留下">
-<meta property="og:type" content="website">
-<meta property="og:title" content="要不要秀恩爱呢">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="说明给定一个二叉树，我们在树的节点上安装摄像头。 节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。 计算监控树的所有节点所需的最小摄像头数量。   来源：力扣（LeetCode）链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;binary-tree-cameras 示例输入：[0,0,null,0,0]输出：1解释：如图所示，一台摄像头足以监控所有节点。s 输入：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="监控二叉树">
+<meta property="og:url" content="http://yoursite.com/year/09/22/%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="要不要秀恩爱呢">
-<meta property="og:description" content="作者很懒什么也没有留下">
+<meta property="og:description" content="说明给定一个二叉树，我们在树的节点上安装摄像头。 节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。 计算监控树的所有节点所需的最小摄像头数量。   来源：力扣（LeetCode）链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;binary-tree-cameras 示例输入：[0,0,null,0,0]输出：1解释：如图所示，一台摄像头足以监控所有节点。s 输入：">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-22T10:31:07.000Z">
+<meta property="article:modified_time" content="2020-09-22T10:36:54.082Z">
 <meta property="article:author" content="jilin7105">
-<meta property="article:tag" content="懒">
+<meta property="article:tag" content="letcode;每日一道算法题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="要不要秀恩爱呢" type="application/atom+xml">
@@ -153,36 +155,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="968.-监控二叉树" class="article article-type-968. " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      监控二叉树
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-968.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/22/%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+
+        
+        <a href="/year/09/22/%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
   	<time datetime="2020-09-22T10:31:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/22/%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91/">监控二叉树</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个二叉树，我们在树的节点上安装摄像头。</p>
+<p>节点上的每个摄影头都可以监视其父对象、自身及其直接子对象。</p>
+<p>计算监控树的所有节点所需的最小摄像头数量。</p>
+<p> </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-cameras">https://leetcode-cn.com/problems/binary-tree-cameras</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>输入：[0,0,null,0,0]<br>输出：1<br>解释：如图所示，一台摄像头足以监控所有节点。s</p>
+<p>输入：[0,0,null,0,null,0,null,null,0]<br>输出：2<br>解释：需要至少两个摄像头来监视树的所有节点。 上图显示了摄像头放置的有效位置之一。</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
+<li>每个节点有三个状态 （0 摄像头在本节点。1 摄像头可以看到，但是不在本节点 ，2 摄像头看不到）</li>
+<li>当前节点中的子节点中有一个 摄像头看不到时， 当前节点需要添加摄像头，状态为2 摄像头看不到本节点</li>
+<li>当前子节点中有存在摄像头时 ，当前节点状态为1 ，可以看到并且摄像头不在本节点</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    res &#x3D; 0</span><br><span class="line">    def minCameraCover(self, root: TreeNode) -&gt; int:</span><br><span class="line">        self.res &#x3D; 0</span><br><span class="line">        if root is None : return 0;</span><br><span class="line">        </span><br><span class="line">        def dfs(root) :</span><br><span class="line">            </span><br><span class="line">            if root is None:</span><br><span class="line">                return 1</span><br><span class="line"></span><br><span class="line">            left &#x3D; dfs(root.left)</span><br><span class="line">            right &#x3D; dfs(root.right)</span><br><span class="line">            if left &#x3D;&#x3D; 2 or right &#x3D;&#x3D; 2  :</span><br><span class="line">                self.res +&#x3D; 1</span><br><span class="line">                return 0</span><br><span class="line">            elif left &#x3D;&#x3D; 0 or right &#x3D;&#x3D; 0:</span><br><span class="line">                return 1</span><br><span class="line">            else:</span><br><span class="line">                return 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        if dfs(root) &#x3D;&#x3D; 2 :</span><br><span class="line">            self.res +&#x3D; 1</span><br><span class="line"></span><br><span class="line">        return self.res</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,353 +227,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/year/09/22/%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-538.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/21/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-09-21T10:39:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/year/09/21/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">把二叉搜索树转换为累加树</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/21/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/">把二叉搜索树转换为累加树</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-78.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/20/%E5%AD%90%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2020-09-20T14:31:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/20/%E5%AD%90%E9%9B%86/">子集</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-79.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/18/%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="archive-article-date">
-  	<time datetime="2020-09-18T02:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/18/%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">单词搜索</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/17/%E5%86%97%E4%BD%99%E9%93%BE%E6%8E%A5/" class="archive-article-date">
-  	<time datetime="2020-09-17T10:14:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/17/%E5%86%97%E4%BD%99%E9%93%BE%E6%8E%A5/">冗余链接 (解决ing)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-226.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/16/%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-09-16T03:52:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/16/%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/">翻转二叉树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-94.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/14/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
-  	<time datetime="2020-09-14T02:23:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/14/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树的中序遍历</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-637.">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/" class="archive-article-date">
-  	<time datetime="2020-09-12T03:43:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/12/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/">二叉树的层平均值</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/11/%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C3/" class="archive-article-date">
-  	<time datetime="2020-09-11T07:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/11/%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C3/">组合总和3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/year/09/10/%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B02/" class="archive-article-date">
-  	<time datetime="2020-09-10T03:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/year/09/10/%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B02/">组合总数2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -564,8 +349,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
