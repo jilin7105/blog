@@ -155,6 +155,183 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-24点游戏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/">24点游戏</a>
+    </h1>
+  
+
+        
+        <a href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/" class="archive-article-date">
+  	<time datetime="2020-08-22T14:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，/，+，-，(，) 的运算得到 24。</p>
+<p>示例 1:</p>
+<p>输入: [4, 1, 8, 7]<br>输出: True<br>解释: (8-4) * (7-1) = 24<br>示例 2:</p>
+<p>输入: [1, 2, 1, 2]<br>输出: False</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/24-game">letcode地址</a></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li><p>枚举所有排列组合的可能性，</p>
+</li>
+<li><p>如何使用递归 </p>
+</li>
+<li><p>这里主要是使用全枚举的思路， 创建减一方法subOne 作用是，当传入数组大于1时 ，取出 两个值 进行加减乘除 运算，将产生的新的数字，和 剩下的数字组成新的数组传入subOne ，如果list只剩下一个值，那么就是最后计算的结果，跟24比较大小。如果相等就跳出递归。</p>
+</li>
+<li><p>[4,1,8,7] =&gt; 1,4 进行 加减乘除  =&gt; 加的结果[5 , 7 ,8 ] =&gt; 5,7 进行加减乘除 =&gt;加的结果[12 ,8] =&gt;12 ,8 进行加减乘除 =&gt;加的结果[20] 不等于24 继续递归</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def judgePoint24(self, nums: List[int]) -&gt; bool:</span><br><span class="line">        return self.subOne(nums)</span><br><span class="line"></span><br><span class="line">    def subOne(self, nums):</span><br><span class="line">        num_len &#x3D; len(nums)</span><br><span class="line"></span><br><span class="line">        if num_len &#x3D;&#x3D; 1:</span><br><span class="line"></span><br><span class="line">            return abs(nums[0] - 24) &lt; 0.00001</span><br><span class="line"></span><br><span class="line">        for i in range(num_len):</span><br><span class="line">            for j in range(num_len):</span><br><span class="line"></span><br><span class="line">                if i &#x3D;&#x3D; j:</span><br><span class="line">                    continue</span><br><span class="line"></span><br><span class="line">                for f in range(5):</span><br><span class="line">                    clone_nums &#x3D; nums.copy()</span><br><span class="line">                    a &#x3D; clone_nums[i]</span><br><span class="line">                    b &#x3D; clone_nums[j]</span><br><span class="line">                    new_num &#x3D; self.action(a, b, f)</span><br><span class="line">                    if new_num is None :</span><br><span class="line">                        continue</span><br><span class="line">                    if i &gt;j :</span><br><span class="line">                        clone_nums.pop(i)</span><br><span class="line">                        clone_nums.pop(j)</span><br><span class="line">                    else :</span><br><span class="line">                        clone_nums.pop(j)</span><br><span class="line">                        clone_nums.pop(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    clone_nums +&#x3D; [new_num]</span><br><span class="line"></span><br><span class="line">                    s &#x3D; self.subOne(clone_nums)</span><br><span class="line">                    if s:</span><br><span class="line">                        return True</span><br><span class="line">                    else:</span><br><span class="line">                        continue</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    def action(self, a, b, type_):</span><br><span class="line">        if type_ &#x3D;&#x3D; 0:</span><br><span class="line">            return a + b</span><br><span class="line">        if type_ &#x3D;&#x3D; 1:</span><br><span class="line">            return a - b</span><br><span class="line">        if type_ &#x3D;&#x3D; 2:</span><br><span class="line">            return a * b</span><br><span class="line">        if type_ &#x3D;&#x3D; 3:</span><br><span class="line">            if b &#x3D;&#x3D; 0:</span><br><span class="line">                return None</span><br><span class="line">            return a &#x2F; b</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/08/22/24%E7%82%B9%E6%B8%B8%E6%88%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-整数转罗马数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/08/22/%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/">12.整数转罗马数字</a>
+    </h1>
+  
+
+        
+        <a href="/year/08/22/%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/" class="archive-article-date">
+  	<time datetime="2020-08-22T13:03:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。</p>
+<p>字符          数值<br>I             1<br>V             5<br>X             10<br>L             50<br>C             100<br>D             500<br>M             1000<br>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p>
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p>
+<p>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。<br>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 <br>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。<br>给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。</p>
+<p>来源：力扣（LeetCode）</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/integer-to-roman">letcode地址</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>输入: 3<br>输出: “III”</p>
+<p>输入: 4<br>输出: “IV”</p>
+<p>输入: 9<br>输出: “IX”</p>
+<p>输入: 58<br>输出: “LVIII”<br>解释: L = 50, V = 5, III = 3.</p>
+<p>输入: 1994<br>输出: “MCMXCIV”<br>解释: M = 1000, CM = 900, XC = 90, IV = 4.</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>首先将所有hash值 都枚举出来， 我开始一直想 4 9 这种怎么处理，其实多虑了，其实应该都枚举 出来 </li>
+<li>从高到低便利，1994 // 1000  = 1   M   994  // 900 =1 CM  94 // 90 = 1  XC </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def intToRoman(self, num: int) -&gt; str:</span><br><span class="line">        ha_list &#x3D; &#123;1000:&#39;M&#39;, 900:&#39;CM&#39;, 500:&#39;D&#39;, 400:&#39;CD&#39;, 100:&#39;C&#39;, 90:&#39;XC&#39;, 50:&#39;L&#39;, 40:&#39;XL&#39;, 10:&#39;X&#39;, 9:&#39;IX&#39;, 5:&#39;V&#39;, 4:&#39;IV&#39;, 1:&#39;I&#39;&#125;</span><br><span class="line">        res &#x3D; &#39;&#39;</span><br><span class="line">        for key in ha_list:</span><br><span class="line">            # &#x2F;&#x2F; 取整</span><br><span class="line">            if num &#x2F;&#x2F; key !&#x3D; 0:</span><br><span class="line">                count &#x3D; num &#x2F;&#x2F; key  </span><br><span class="line">                res +&#x3D; ha_list[key] * count </span><br><span class="line">                num %&#x3D; key</span><br><span class="line">        return res</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/08/22/%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-最小深度二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,224 +1078,9 @@
 
 
   
-    <article id="post-聊聊ua" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/12/%E8%81%8A%E8%81%8Aua/">聊聊ua</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/12/%E8%81%8A%E8%81%8Aua/" class="archive-article-date">
-  	<time datetime="2020-08-12T02:55:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User-Agent"></a>User-Agent</h1><p>=============</p>
-<h2 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1. 背景介绍"></a>1. 背景介绍</h2><p>最近公司在渠道广告推广过程中，遇到了一个问题，就是ip+ua匹配率很低。 之所以匹配率低是因为，我们使用整个ua进行匹配。由于用户手机中不同app使用的浏览器的内核不同，或者不同app增加的ua个性化标示不同，导致ua无法匹配成功。</p>
-<h2 id="2-什么是ua"><a href="#2-什么是ua" class="headerlink" title="2. 什么是ua"></a>2. 什么是ua</h2><p>User Agent中文名为用户代理，是Http协议中的一部分，属于头域的组成部分，User Agent也简称UA</p>
-<h2 id="3-ua里面有什么"><a href="#3-ua里面有什么" class="headerlink" title="3. ua里面有什么"></a>3. ua里面有什么</h2><blockquote>
-<p>User-Agent: Mozilla/version (system-information) platform (platform-details) extensions</p>
-<p>浏览器标识 (操作系统标识; 加密等级标识; 浏览器语言) 渲染引擎标识版本信息</p>
-</blockquote>
-<p>Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 </p>
-<p><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15   //本人电脑 safari ua</code></p>
-<p><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36    //本人电脑 Chrome ua</code></p>
-<p><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0 //本人电脑 Firefox ua</code></p>
-<p>上面是我们获取到的一个ios手机的ua</p>
-<ul>
-<li><p>Mozilla/5.0  是一个通用标记符号，用来表示与 Mozilla 兼容，这几乎是现代浏览器的标配。 </p>
-</li>
-<li><p>platform = AppleWebKit/605.1.15   用来说明浏览器所运行的原生系统平台,也代指渲染引擎，手机内置的浏览器用的就是AppleWebKit为内核开发的浏览器（大部分安卓手机也用使用这个苹果浏览器内核）</p>
-</li>
-<li><p>system-information = (iPhone; CPU iPhone OS 13_5_1 like Mac OS X)  这里包含了 </p>
-<ul>
-<li>iphone 平台系统信息 </li>
-<li>CPU iPhone OS 13_5_1  操作系统信息</li>
-</ul>
-</li>
-<li><p>KHTML, like Gecko 说明信息 类似Gecko内核</p>
-</li>
-<li><p>Chrome/84.0.4147.105 浏览器/版本信息</p>
-</li>
-</ul>
-<h2 id="4-不变的信息"><a href="#4-不变的信息" class="headerlink" title="4. 不变的信息"></a>4. 不变的信息</h2><p>由此我们大体估计出不变的信息为<br>(Macintosh; Intel Mac OS X 10_15_4)这一段，虽然每个浏览器情况可能不一样</p>
-<p>其中</p>
-<p>Macintosh一般指MAC 也就是平台</p>
-<p>Intel Mac OS X 10_15_4  是指 操作系统。 </p>
-<p>当然这是 苹果手机和浏览器的情况</p>
-<h2 id="5-安卓手机ua查看"><a href="#5-安卓手机ua查看" class="headerlink" title="5. 安卓手机ua查看"></a>5. 安卓手机ua查看</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mozilla&#x2F;5.0 (Linux; Android 8.1.0; vivo Y85A Build&#x2F;OPM1.171019.011; wv) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Version&#x2F;4.0 Chrome&#x2F;62.0.3202.84 Mobile Safari&#x2F;537.36</span><br><span class="line"></span><br><span class="line">Dalvik&#x2F;2.1.0 (Linux; U; Android 8.1.0; vivo Y85A Build&#x2F;OPM1.171019.011)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mozilla&#x2F;5.0 (Linux; Android 8.1.0; V1818A Build&#x2F;OPM1.171019.026; wv) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Version&#x2F;4.0 Chrome&#x2F;62.0.3202.84 Mobile Safari&#x2F;537.36</span><br><span class="line"></span><br><span class="line">Dalvik&#x2F;2.1.0 (Linux; U; Android 8.1.0; V1818A Build&#x2F;OPM1.171019.026)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Mozilla&#x2F;5.0 (Linux; Android 9; HMA-AL00 Build&#x2F;HUAWEIHMA-AL00; wv) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Version&#x2F;4.0 Chrome&#x2F;74.0.3729.136 Mobile Safari&#x2F;537.36</span><br><span class="line"></span><br><span class="line">Mozilla&#x2F;5.0 (Linux; Android 9; HMA-AL00 Build&#x2F;HUAWEIHMA-AL00; wv) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Version&#x2F;4.0 Chrome&#x2F;75.0.3770.156 Mobile Safari&#x2F;537.36</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Mozilla&#x2F;5.0 (Linux; Android 6.0; HL2001 Build&#x2F;MRA58K; wv) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Version&#x2F;4.0 Chrome&#x2F;77.0.3865.120 MQQBrowser&#x2F;6.2 TBS&#x2F;045230 Mobile Safari&#x2F;537.36 V1_AND_SQ_8.3.3_1376_YYB_D QQ&#x2F;8.3.3.4515 NetType&#x2F;4G WebP&#x2F;0.3.0 Pixel&#x2F;720 StatusBarHeight&#x2F;49 SimpleUISwitch&#x2F;0 QQTheme&#x2F;1000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Mozilla&#x2F;5.0 (Linux; Android 6.0; HL2001 Build&#x2F;MRA58K; wv) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Version&#x2F;4.0 Chrome&#x2F;44.0.2403.119 Mobile Safari&#x2F;537.36</span><br></pre></td></tr></table></figure>
-
-
-<p>根据查看安卓手机的ua 来看，其同一个设备请求时，其中相同的信息也只有<br>(Linux; Android 6.0; HL2001 Build/MRA58K; wv) 这一部分</p>
-<h2 id="6-定义解决方案"><a href="#6-定义解决方案" class="headerlink" title="6. 定义解决方案"></a>6. 定义解决方案</h2><p>由于全等的匹配率较低，所以预期采取通过ua中，平台信息，操作系统信息，设备编号 三个信息进行匹配提高匹配率</p>
-<p>即 例如:<br>Linux == Linux<br>Android 6.0 = Android 6.0<br>HL2001 Build/MRA58K = HL2001 Build/MRA58K </p>
-<p>并且ip相同</p>
-<p>192.168.0.134 = 192.168.0.134</p>
-<p>，此时定义为同一个设备</p>
-<h2 id="7-遇到的问题和解决问题"><a href="#7-遇到的问题和解决问题" class="headerlink" title="7. 遇到的问题和解决问题"></a>7. 遇到的问题和解决问题</h2><p>  我的思路是这样的，</p>
-<h3 id="1-如何根据ua取出-Linux-U-Android-6-0-HL2001-Build-MRA58K-wv-rv-29201-zh-CH"><a href="#1-如何根据ua取出-Linux-U-Android-6-0-HL2001-Build-MRA58K-wv-rv-29201-zh-CH" class="headerlink" title="1 如何根据ua取出 (Linux; U; Android 6.0; HL2001 Build/MRA58K; wv ;rv:29201 ;zh-CH)"></a>1 如何根据ua取出 (Linux; U; Android 6.0; HL2001 Build/MRA58K; wv ;rv:29201 ;zh-CH)</h3><pre><code>    - 方法是匹配第一个&quot;(&quot;    &quot;)&quot;  这里可以使用正则匹配也可以使用字符串查找。我选择使用字符串匹配，因为我批量导出ua时发现，有些媒体传输过程中，会将（）html转码 &amp;#40; 和 &amp;#41;</code></pre>
-<h3 id="2-哪些是有效信息如何提取"><a href="#2-哪些是有效信息如何提取" class="headerlink" title="2 哪些是有效信息如何提取?"></a>2 哪些是有效信息如何提取?</h3><pre><code>    - Linux; U; Android 6.0; HL2001 Build/MRA58K; wv ;rv:29201 ;zh-CH 假装第一步 我们已经取到了字符串
-    - 这是一个比较典型和全面的system-information ，这里HL2001 Build/MRA58K 是设备型号，Android 6.0是操作系统版本 对于我们来说只有这两个 数据有用。
-    - 第一件事，我先将空格去掉  Linux;U;Android6.0;HL2001Build/MRA58K;wv;rv:29201;zh-CH 去掉空格是为了避免不同浏览器，空格位置不同对查询产生影响
-    - 按照国际惯例将 字符串按照 ; 分成数组
-    - [&#39;Linux&#39;,&#39;U&#39;,&#39;Android6.0&#39;,&#39;HL2001Build/MRA58K&#39;,&#39;wv&#39;,&#39;rv:29201&#39;,&#39;zh-CH&#39;]
-    - 然后删除一些不必要的字符串 1.长度小于 3 的直接删除 , 2. zh开头的直接删除（因为会有 zh.ch zh-Ch等版本吧）3.rv开头的直接删除。（rv:29201 这个信息并不是每个浏览器ua都带有的） 4. Linux 删除 （这一步不一定有必要。原因是，安卓手机基本上都有这个标示，ios基本都是 iphone 所以这个字段没有用。再有是觉得变量越少，可能存在的问题就越少） 
-    - 上一步之后 数组变成[&#39;Android6.0&#39;,&#39;HL2001Build/MRA58K&#39;]
-    - 这一步是将数组按照长度排序，大-&gt;小 [&#39;HL2001Build/MRA58K&#39;,&#39;Android6.0&#39;]  进一步减少位置因素对查询造成影响
-    - 最后为了sql查询方便 再将其拼接成 字符串&#39;HL2001Build/MRA58K;Android6.0&#39;</code></pre>
-<h3 id="3-发现部分ua中的版本号-尤其是ios-使用-标示。-比如-ios-13-0-10-gt-ios-13-0-10"><a href="#3-发现部分ua中的版本号-尤其是ios-使用-标示。-比如-ios-13-0-10-gt-ios-13-0-10" class="headerlink" title="3 发现部分ua中的版本号 尤其是ios 使用_标示。 比如 ios 13.0.10  -&gt; ios 13_0_10"></a>3 发现部分ua中的版本号 尤其是ios 使用_标示。 比如 ios 13.0.10  -&gt; ios 13_0_10</h3><pre><code>    - 在获取字符串时同时将文本里的 &quot;_&quot; 统一替换成 &quot;.&quot;</code></pre>
-<h3 id="4-go-在删除数组元素时，出现下标变化。"><a href="#4-go-在删除数组元素时，出现下标变化。" class="headerlink" title="4 go 在删除数组元素时，出现下标变化。"></a>4 go 在删除数组元素时，出现下标变化。</h3><pre><code>    - 个人 算法能力一般 
-    - list  = append(list[:i] , list[i+1:]... )  我采用这种方式进行数组元素删除
-    - 这时需要将。i - 1  因为将数组中i 删除 ， 也就是说 i+1 的  元素现在是 i 的位置，如果接着循环就会错过原i+1元素
-
-    - 举例  [ 0 ,1, 2, 3, 4, 5, 6] 此时i =3 执行操作后 数组变成 [ 0 ,1, 2, 4, 5, 6]
-    - 如果不处理i 继续循环 i++ 之后变为4  list[4] = 5  这是元素 4 并没有进入循环 所以要执行i-- 操作</code></pre>
-        
-          <a class="article-more-a" href="/year/08/12/%E8%81%8A%E8%81%8Aua/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络协议</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/12/%E8%81%8A%E8%81%8Aua/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-公司分享1-计算机网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/08/%E5%85%AC%E5%8F%B8%E5%88%86%E4%BA%AB1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">公司分享1 -计算机网络</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/08/%E5%85%AC%E5%8F%B8%E5%88%86%E4%BA%AB1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2020-08-08T15:38:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="计算机网络协议-1-总览"><a href="#计算机网络协议-1-总览" class="headerlink" title="计算机网络协议 1 总览"></a>计算机网络协议 1 总览</h1><p>1221</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计算机网络协议</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/08/%E5%85%AC%E5%8F%B8%E5%88%86%E4%BA%AB1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 
