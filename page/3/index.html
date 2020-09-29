@@ -155,6 +155,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="107.-二叉树的层次遍历" class="article article-type-107.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/06/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">107. 二叉树的层次遍历 II</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/06/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2020-09-06T04:06:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个二叉树，返回其节点值自底向上的层次遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）<br>来源：力扣（LeetCode）链接：<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/">letcode地址</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>给定二叉树 [3,9,20,null,null,15,7],</p>
+<p>返回其自底向上的层次遍历为：</p>
+<p>[<br>  [15,7],<br>  [9,20],<br>  [3]<br>]</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>每次递归的时候输入层级信息</li>
+<li>相同层级的写入一个数组里 </li>
+<li>按规定输出</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def levelOrderBottom(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        </span><br><span class="line">        if not root:</span><br><span class="line">            return []</span><br><span class="line">        res &#x3D; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        def dfs(r, n):</span><br><span class="line">            if n in res:</span><br><span class="line">                res[n].append(r.val)</span><br><span class="line">            else:</span><br><span class="line">                res[n] &#x3D; [r.val]</span><br><span class="line">            if r.left:</span><br><span class="line">                dfs(r.left, n + 1)</span><br><span class="line">            if r.right:</span><br><span class="line">                dfs(r.right, n + 1)</span><br><span class="line"></span><br><span class="line">        dfs(root, 1)</span><br><span class="line">        result &#x3D; [res[k] for k in sorted(res.keys(),key&#x3D;lambda x:x, reverse&#x3D;True)]</span><br><span class="line">        return result</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/06/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="60.-第k个排列" class="article article-type-60.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -927,94 +1009,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/08/28/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%98%AF%E8%83%BD%E5%90%A6%E8%BF%94%E5%9B%9E%E5%8E%9F%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-重新安排行程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">重新安排行程</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-27T09:37:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个机票的字符串二维数组 [from, to]，子数组中的两个成员分别表示飞机出发和降落的机场地点，对该行程进行重新规划排序。所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。</p>
-<p>说明:</p>
-<p>如果存在多种有效的行程，你可以按字符自然排序返回最小的行程组合。例如，行程 [“JFK”, “LGA”] 与 [“JFK”, “LGB”] 相比就更小，排序更靠前<br>所有的机场都用三个大写字母表示（机场代码）。<br>假定所有机票至少存在一种合理的行程。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reconstruct-itinerary">letcode地址</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
-<p>输入: [[“MUC”, “LHR”], [“JFK”, “MUC”], [“SFO”, “SJC”], [“LHR”, “SFO”]]<br>输出: [“JFK”, “MUC”, “LHR”, “SFO”, “SJC”]<br>示例 2:</p>
-<p>输入: [[“JFK”,”SFO”],[“JFK”,”ATL”],[“SFO”,”ATL”],[“ATL”,”JFK”],[“ATL”,”SFO”]]<br>输出: [“JFK”,”ATL”,”JFK”,”SFO”,”ATL”,”SFO”]<br>解释: 另一种有效的行程是 [“JFK”,”SFO”,”ATL”,”JFK”,”ATL”,”SFO”]。但是它自然排序更大更靠后。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>先生成字典</li>
-<li>对字典元素排序</li>
-<li>然后从’JFK’开始逐层搜索，每前进一层就减去一条路径</li>
-<li>直到某个节点不存通往其他节点的路径时，说明该节点就为此次行程的终点</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findItinerary(self, tickets: List[List[str]]) -&gt; List[str]:</span><br><span class="line">        import collections</span><br><span class="line">        d &#x3D; collections.defaultdict(list)   </span><br><span class="line">        for f, t in tickets:</span><br><span class="line">            d[f] +&#x3D; [t]  </span><br><span class="line"></span><br><span class="line">        for f in d:</span><br><span class="line">            d[f].sort()  </span><br><span class="line"></span><br><span class="line">        ans &#x3D; []</span><br><span class="line">        def dfs(f):  </span><br><span class="line">            while d[f]:</span><br><span class="line">                dfs(d[f].pop(0))             </span><br><span class="line">            ans.append(f)</span><br><span class="line"></span><br><span class="line">        dfs(&#39;JFK&#39;)</span><br><span class="line">        return ans[::-1]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/27/%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E8%A1%8C%E7%A8%8B/">展开全文 >></a>
         </p>
       
 
