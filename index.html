@@ -155,6 +155,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="1562.-查找大小为 M 的最新分组" class="article article-type-1562.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/30/%E6%9F%A5%E6%89%BE%E5%A4%A7%E5%B0%8F%E4%B8%BA%20M%20%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%86%E7%BB%84/">1562. 查找大小为 M 的最新分组</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/30/%E6%9F%A5%E6%89%BE%E5%A4%A7%E5%B0%8F%E4%B8%BA%20M%20%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%86%E7%BB%84/" class="archive-article-date">
+  	<time datetime="2020-09-30T10:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给你一个数组 arr ，该数组表示一个从 1 到 n 的数字排列。有一个长度为 n 的二进制字符串，该字符串上的所有位最初都设置为 0 。</p>
+<p>在从 1 到 n 的每个步骤 i 中（假设二进制字符串和 arr 都是从 1 开始索引的情况下），二进制字符串上位于位置 arr[i] 的位将会设为 1 。</p>
+<p>给你一个整数 m ，请你找出二进制字符串上存在长度为 m 的一组 1 的最后步骤。一组 1 是一个连续的、由 1 组成的子串，且左右两边不再有可以延伸的 1 。</p>
+<p>返回存在长度 恰好 为 m 的 一组 1  的最后步骤。如果不存在这样的步骤，请返回 -1 。</p>
+<p> </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-latest-group-of-size-m">https://leetcode-cn.com/problems/find-latest-group-of-size-m</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>输入：arr = [3,5,1,2,4], m = 1<br>输出：4<br>解释：<br>步骤 1：”00100”，由 1 构成的组：[“1”]<br>步骤 2：”00101”，由 1 构成的组：[“1”, “1”]<br>步骤 3：”10101”，由 1 构成的组：[“1”, “1”, “1”]<br>步骤 4：”11101”，由 1 构成的组：[“111”, “1”]<br>步骤 5：”11111”，由 1 构成的组：[“11111”]<br>存在长度为 1 的一组 1 的最后步骤是步骤 4 。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>以[3,5,1,2,4]为例  维护一个数组  [[1,5]]</li>
+<li>从最后一个 元素开始 4 进入时 ，在1，5之间 数组拆分为[[1,3],[5]] ,其中5 符合条件 ，返回len -1 也就是4</li>
+<li>以arr = [3,1,5,4,2], m = 2 为例 </li>
+<li>第一次 2 进入时 [1,5]=&gt; [[1],[3,5]] 其中[1]  小于目标长度，删除这个区块。[3,5]</li>
+<li>第二次 4 进入时  [[3,5]] =&gt; [[3],[5]] 都小于目标长度返回 -1</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findLatestStep(self, arr, m):</span><br><span class="line">        len_i &#x3D; len(arr)</span><br><span class="line">        res &#x3D; [[1,len_i]]</span><br><span class="line">        if len_i &#x3D;&#x3D; m :return len_i</span><br><span class="line">        while len_i &gt; 0  and len(res)&gt;0:</span><br><span class="line">        </span><br><span class="line">            len_i -&#x3D; 1</span><br><span class="line">            for item  in range(len(res)):</span><br><span class="line">               </span><br><span class="line">                if  arr[len_i] &gt;&#x3D;res[item][0]   and  arr[len_i] &lt;&#x3D; res[item][1] :</span><br><span class="line"></span><br><span class="line">                    res_before &#x3D; res[:item]</span><br><span class="line">                    res_after &#x3D; res[item+1:]</span><br><span class="line">                    if arr[len_i] - res[item][0] &#x3D;&#x3D; m :</span><br><span class="line">                        return len_i</span><br><span class="line">                    if arr[len_i] - res[item][0] &gt; m :</span><br><span class="line">                        res_before.append([res[item][0],arr[len_i]-1])</span><br><span class="line"></span><br><span class="line">                    if res[item][1] - arr[len_i] &#x3D;&#x3D; m :</span><br><span class="line">                        return len_i</span><br><span class="line">                    if res[item][1] - arr[len_i] &gt; m :</span><br><span class="line">                        res_before.append([arr[len_i]+1 , res[item][1] ])</span><br><span class="line"></span><br><span class="line">                    res &#x3D; res_before + res_after</span><br><span class="line">                    break;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return -1</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/30/%E6%9F%A5%E6%89%BE%E5%A4%A7%E5%B0%8F%E4%B8%BA%20M%20%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%86%E7%BB%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="145.-二叉树的后序遍历" class="article article-type-145.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -856,75 +943,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/09/21/%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BD%AC%E6%8D%A2%E4%B8%BA%E7%B4%AF%E5%8A%A0%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="78.-子集" class="article article-type-78.  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/20/%E5%AD%90%E9%9B%86/">子集</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/20/%E5%AD%90%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2020-09-20T14:31:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets">https://leetcode-cn.com/problems/subsets</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>输入: nums = [1,2,3]<br>输出:<br>[<br>  [3],<br>  [1],<br>  [2],<br>  [1,2,3],<br>  [1,3],<br>  [2,3],<br>  [1,2],<br>  []<br>]</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>从第一位 开始遍历，每次都是用后面 一位 拼接上之前的所有 子集</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line"></span><br><span class="line">    def subsets(self, nums: List[int]) -&gt; List[List[int]]:</span><br><span class="line">        res &#x3D; [[]]</span><br><span class="line">        for i in nums:</span><br><span class="line">            res &#x3D; res + [[i] + num for num in res]</span><br><span class="line">        return res</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/20/%E5%AD%90%E9%9B%86/">展开全文 >></a>
         </p>
       
 
