@@ -155,6 +155,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="344.-反转字符串" class="article article-type-344.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/10/09/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">反转字符串</a>
+    </h1>
+  
+
+        
+        <a href="/year/10/09/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
+  	<time datetime="2020-10-09T05:51:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。</p>
+<p>不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。</p>
+<p>你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。</p>
+<p> </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-string">https://leetcode-cn.com/problems/reverse-string</a></p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>找出 中间值交换对应值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseString(self, s: List[str]) -&gt; None:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Do not return anything, modify s in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        </span><br><span class="line">        for i in range(int(len(s)&#x2F;2)):</span><br><span class="line">            s[i] , s[len(s)-i-1] &#x3D;  s[len(s)-i-1], s[i]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="2">
+<li>改进，双指针，判断下标大小</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseString(self, s: List[str]) -&gt; None:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Do not return anything, modify s in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        </span><br><span class="line">        i, j &#x3D; 0, len(s) - 1</span><br><span class="line">        while i &lt; j:</span><br><span class="line">            s[i],s[j]&#x3D;s[j],s[i]</span><br><span class="line">            i+&#x3D;1</span><br><span class="line">            j-&#x3D;1</span><br><span class="line">        return s</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>臭不要脸的改进</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseString(self, s: List[str]) -&gt; None:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Do not return anything, modify s in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        </span><br><span class="line">        s.reverse()</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/10/09/%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="141.-环形链表" class="article article-type-141.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -907,90 +1000,9 @@
 
 
   
-    <article id="617.-合并二叉树" class="article article-type-617.  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/27/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">合并二叉树</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/27/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-09-27T08:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
-<p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-binary-trees">https://leetcode-cn.com/problems/merge-two-binary-trees</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>还是常规二叉树的题，递归计算，这次多了要合并的要求</li>
-<li>如果t1 不存在的话，合并结果为t2</li>
-<li>将t2 合并值 t1 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def mergeTrees(self, t1: TreeNode, t2: TreeNode) -&gt; TreeNode:</span><br><span class="line"></span><br><span class="line">        if t1 is None :</span><br><span class="line">            return t2 </span><br><span class="line">        if t2 is None :</span><br><span class="line">            return t1</span><br><span class="line">        </span><br><span class="line">        t1.val +&#x3D; t2.val</span><br><span class="line">        t1.left &#x3D; self.mergeTrees(t1.left ,t2.left)</span><br><span class="line">        t1.right &#x3D; self.mergeTrees(t1.right ,t2.right)</span><br><span class="line">        return t1</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">            </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/27/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 

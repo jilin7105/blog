@@ -155,6 +155,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="617.-合并二叉树" class="article article-type-617.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/27/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">合并二叉树</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/27/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-09-27T08:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
+<p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-two-binary-trees">https://leetcode-cn.com/problems/merge-two-binary-trees</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>还是常规二叉树的题，递归计算，这次多了要合并的要求</li>
+<li>如果t1 不存在的话，合并结果为t2</li>
+<li>将t2 合并值 t1 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def mergeTrees(self, t1: TreeNode, t2: TreeNode) -&gt; TreeNode:</span><br><span class="line"></span><br><span class="line">        if t1 is None :</span><br><span class="line">            return t2 </span><br><span class="line">        if t2 is None :</span><br><span class="line">            return t1</span><br><span class="line">        </span><br><span class="line">        t1.val +&#x3D; t2.val</span><br><span class="line">        t1.left &#x3D; self.mergeTrees(t1.left ,t2.left)</span><br><span class="line">        t1.right &#x3D; self.mergeTrees(t1.right ,t2.right)</span><br><span class="line">        return t1</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">            </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/27/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="968.-监控二叉树" class="article article-type-968.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -903,91 +984,9 @@
 
 
   
-    <article id="post-组合总数2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/10/%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B02/">组合总数2</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/10/%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B02/" class="archive-article-date">
-  	<time datetime="2020-09-10T03:33:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目详情"><a href="#题目详情" class="headerlink" title="题目详情"></a>题目详情</h3><p>跟昨天的一样 ，这次变成每个数字只能用一次</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combination-sum-ii">https://leetcode-cn.com/problems/combination-sum-ii</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
-<p>输入: candidates = [10,1,2,7,6,1,5], target = 8,<br>所求解集为:<br>[<br>  [1, 7],<br>  [1, 2, 5],<br>  [2, 6],<br>  [1, 1, 6]<br>]<br>示例 2:</p>
-<p>输入: candidates = [2,5,2,1,2], target = 5,<br>所求解集为:<br>[<br>  [1,2,2],<br>  [5]<br>]</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
-<li>使用字典记录递归中循环过的值，遇到重复的跳出</li>
-<li>每次递归时，排除数组中当前使用元素，以达到每个元素只使用一次</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def combinationSum2(self, candidates: List[int], target: int) -&gt; List[List[int]]:</span><br><span class="line">        self.res &#x3D; []</span><br><span class="line">        candidates.sort()</span><br><span class="line">        self.dfs(candidates, target,[])</span><br><span class="line">        return self.res</span><br><span class="line">    def dfs(self, candidates, target , now) :</span><br><span class="line">        res &#x3D; &#123;&#125;</span><br><span class="line">        for i in range(len(candidates)):</span><br><span class="line">            if candidates[i] not in res :</span><br><span class="line">                res[candidates[i]] &#x3D; 1</span><br><span class="line">            else :</span><br><span class="line">                continue</span><br><span class="line">            new &#x3D; target - candidates[i]</span><br><span class="line">            now_cp &#x3D; now</span><br><span class="line">            now_cp &#x3D; now + [candidates[i]]</span><br><span class="line"></span><br><span class="line">            if new &gt; 0 :</span><br><span class="line">                self.dfs(candidates[i+1:]  , new, now_cp)</span><br><span class="line">            if new &#x3D;&#x3D; 0:</span><br><span class="line">                self.res.append(now_cp)</span><br><span class="line"></span><br><span class="line">            if new &lt; 0:</span><br><span class="line">                break</span><br><span class="line">        return</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/10/%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
