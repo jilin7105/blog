@@ -155,6 +155,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-1～n整数中1出现的次数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/10/12/1%EF%BD%9En%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">1～n整数中1出现的次数</a>
+    </h1>
+  
+
+        
+        <a href="/year/10/12/1%EF%BD%9En%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-10-12T05:25:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。</p>
+<p>例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof">https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof</a></p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li><p>按位取值，影响当前位置1出现次数的，为 高位和低位</p>
+</li>
+<li><p>比如 123 </p>
+</li>
+<li><p>个位中1出现的次数，第一 高位 （120 /10   + 1）* 1 = 13 次 </p>
+</li>
+<li><p>十位中1出现的次数，第一 高位10 +10（当当前位置&gt;1时） /10 = 2  * 10 次  =20</p>
+</li>
+<li><p>百位中1出现的次数，第一 高位无  ，第二低位中  23 次 + 1 （100那次）=24</p>
+</li>
+<li><p>总计  57次</p>
+</li>
+<li><p>总结  每一位 上 1 出现的次数<br>当 n == 0 时    high * digit(比如个位1， 十位 10 ，百位 100)<br>当 n == 1 时    high * digit(比如个位1， 十位 10 ，百位 100)+low +1     这里是因为有0～9有10个数<br>当 n &gt; 1 时    (high + 1) * digit(比如个位1， 十位 10 ，百位 100)</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def countDigitOne(self, n: int) -&gt; int:</span><br><span class="line">        digit, res &#x3D; 1, 0</span><br><span class="line">        high, cur, low &#x3D; n &#x2F;&#x2F; 10, n % 10, 0</span><br><span class="line">        while high !&#x3D; 0 or cur !&#x3D; 0:</span><br><span class="line">            if cur &#x3D;&#x3D; 0: res +&#x3D; high * digit</span><br><span class="line">            elif cur &#x3D;&#x3D; 1: res +&#x3D; high * digit + low + 1</span><br><span class="line">            else: res +&#x3D; (high + 1) * digit</span><br><span class="line">            low +&#x3D; cur * digit</span><br><span class="line">            cur &#x3D; high % 10</span><br><span class="line">            high &#x2F;&#x2F;&#x3D; 10</span><br><span class="line">            digit *&#x3D; 10</span><br><span class="line">        return res</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/10/12/1%EF%BD%9En%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="142.-环形链表2" class="article article-type-142.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -532,7 +624,8 @@
 <p>输入: J = “z”, S = “ZZ”<br>输出: 0</p>
 <p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jewels-and-stones">https://leetcode-cn.com/problems/jewels-and-stones</a></p>
 <h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
-<li>哈哈哈哈哈哈 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def numJewelsInStones(self, J: str, S: str) -&gt; int:</span><br><span class="line">        sum_ &#x3D; 0</span><br><span class="line">        for item in S:</span><br><span class="line">            if item in J :</span><br><span class="line">                sum_+&#x3D;1 </span><br><span class="line">        return sum_</span><br></pre></td></tr></table></figure></li>
+<li>哈哈哈哈哈哈 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def numJewelsInStones(self, J: str, S: str) -&gt; int:</span><br><span class="line">        sum_ &#x3D; 0</span><br><span class="line">        for item in S:</span><br><span class="line">            if item in J :</span><br><span class="line">                sum_+&#x3D;1 </span><br><span class="line">        return sum_</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -884,89 +977,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/09/28/%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8CII/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="235.-二叉搜索树的最近公共祖先" class="article article-type-235.  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/28/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">二叉搜索树的最近公共祖先</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/28/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="archive-article-date">
-  	<time datetime="2020-09-28T08:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。</p>
-<p>百度百科中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”</p>
-<p>例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree">https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
-<li>递归解，搜索二叉树中，左子树所有值小于父节点， 右子树所有值大于当前节点</li>
-<li>如果最小值 大于当前节点说明，在父节点的右子树上</li>
-<li>如果最大值 小于当前节点说明，在父节点的左子树上</li>
-<li>其他情况 最小值和最大值 分别在当前 节点两侧，或者其中一个值就在当前节点 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def lowestCommonAncestor(self, root: &#39;TreeNode&#39;, p: &#39;TreeNode&#39;, q: &#39;TreeNode&#39;) -&gt; &#39;TreeNode&#39;:</span><br><span class="line">        self.max_num &#x3D; q.val</span><br><span class="line">        self.min_num  &#x3D; p.val</span><br><span class="line">        if p.val &gt; q.val :</span><br><span class="line">            self.max_num &#x3D; p.val</span><br><span class="line">            self.min_num  &#x3D; q.val</span><br><span class="line">        def dfs(root):</span><br><span class="line">            if root is None :</span><br><span class="line">                return None</span><br><span class="line">            res &#x3D; root </span><br><span class="line">            if self.max_num &lt; root.val:</span><br><span class="line">                res &#x3D; dfs(root.left)</span><br><span class="line">                </span><br><span class="line">            if self.min_num &gt; root.val:</span><br><span class="line">                res &#x3D; dfs(root.right)</span><br><span class="line">            </span><br><span class="line">            return res</span><br><span class="line">        return dfs(root)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/28/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">展开全文 >></a>
         </p>
       
 
