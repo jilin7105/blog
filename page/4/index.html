@@ -155,6 +155,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-二叉树的所有路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/">二叉树的所有路径</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/" class="archive-article-date">
+  	<time datetime="2020-09-04T06:22:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个二叉树，返回所有从根节点到叶子节点的路径。</p>
+<p>说明: 叶子节点是指没有子节点的节点。</p>
+<p>来源：力扣（LeetCode）链接：<br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-paths/">letcode地址</a></p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>就是二叉树的遍历</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def binaryTreePaths(self, root: TreeNode) -&gt; List[str]:</span><br><span class="line">        if not root:</span><br><span class="line">            return []</span><br><span class="line">        def dfs(root, path):</span><br><span class="line">            if root:</span><br><span class="line">                path +&#x3D; str(root.val)</span><br><span class="line">                if not root.left and not root.right:</span><br><span class="line">                    res.append(path)</span><br><span class="line">                else:</span><br><span class="line">                    path +&#x3D; &#39;-&gt;&#39; </span><br><span class="line">                    dfs(root.left, path)</span><br><span class="line">                    dfs(root.right, path)</span><br><span class="line"></span><br><span class="line">        res &#x3D; []</span><br><span class="line">        dfs(root, &#39;&#39;)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-皇后" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -934,90 +1014,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/08/26/%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-递增子序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/08/25/%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">491.递增子序列</a>
-    </h1>
-  
-
-        
-        <a href="/year/08/25/%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-08-25T08:05:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目说明"><a href="#题目说明" class="headerlink" title="题目说明"></a>题目说明</h3><p>给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。</p>
-<p>示例:</p>
-<p>输入: [4, 6, 7, 7]<br>输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]<br>说明:</p>
-<p>给定数组的长度不会超过15。<br>数组中的整数范围是 [-100,100]。<br>给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/increasing-subsequences">letcode地址</a></p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>举例<br>第一次遍历。4 6   4 7   4 7  此时 7  curPres[i]存在过 跳过<br>46 递归遍历 4 6 7  4 6 7  此时 7  curPres[i]存在过 跳过<br>467 递归   4 6 7 7 </li>
-</ol>
-<p>47 递归  477 </p>
-<p>第二位遍历 6 7  6 7  此时 7  curPres[i]存在过 跳过<br>如此循环</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findSubsequences(self, nums: List[int]) -&gt; List[List[int]]:</span><br><span class="line">        res &#x3D; []</span><br><span class="line"></span><br><span class="line">        def dfs(nums, tmp):</span><br><span class="line">            if len(tmp) &gt; 1:</span><br><span class="line">                res.append(tmp)</span><br><span class="line">            curPres &#x3D; defaultdict(int)</span><br><span class="line">            for inx, i in enumerate(nums):</span><br><span class="line">                if curPres[i]:</span><br><span class="line">                    continue</span><br><span class="line">                if not tmp or i &gt;&#x3D; tmp[-1]:</span><br><span class="line">                    curPres[i] &#x3D; 1</span><br><span class="line">                    dfs(nums[inx+1:], tmp+[i])</span><br><span class="line"></span><br><span class="line">        dfs(nums, [])</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/08/25/%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">展开全文 >></a>
         </p>
       
 

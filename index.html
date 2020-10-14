@@ -155,6 +155,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="1002.-查找常用字符" class="article article-type-1002.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/10/14/%E6%9F%A5%E6%89%BE%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6/">查找常用字符</a>
+    </h1>
+  
+
+        
+        <a href="/year/10/14/%E6%9F%A5%E6%89%BE%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2020-10-14T05:39:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。</p>
+<p>你可以按任意顺序返回答案。</p>
+<p> </p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-common-characters">https://leetcode-cn.com/problems/find-common-characters</a></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1：</p>
+<p>输入：[“bella”,”label”,”roller”]<br>输出：[“e”,”l”,”l”]<br>示例 2：</p>
+<p>输入：[“cool”,”lock”,”cook”]<br>输出：[“c”,”o”]</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>以第一个字符串为基准  ，逐个遍历 数组 （set的作用是去重。set(“aaaaabbbbb”) {‘a’, ‘b’}）</li>
+<li>统计每个字符的最小值 ， 比如  l  的数量是 [2,2,2] 最后 “l” * 2</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def commonChars(self, A) :</span><br><span class="line"></span><br><span class="line">        if not A:</span><br><span class="line">            return []</span><br><span class="line"></span><br><span class="line">        res &#x3D; []</span><br><span class="line">        for c in set(A[0]):</span><br><span class="line">            count &#x3D; [w.count(c) for w in A]</span><br><span class="line"></span><br><span class="line">            s &#x3D; c * min(count)</span><br><span class="line"></span><br><span class="line">            res +&#x3D; s</span><br><span class="line">        return res</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/10/14/%E6%9F%A5%E6%89%BE%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-1～n整数中1出现的次数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -900,83 +984,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/09/28/%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="113.-路径总和II" class="article article-type-113.  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/28/%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8CII/">路径总和 II</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/28/%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8CII/" class="archive-article-date">
-  	<time datetime="2020-09-28T08:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。</p>
-<p>说明: 叶子节点是指没有子节点的节点。</p>
-<p>示例:<br>给定如下二叉树，以及目标和 sum = 22，</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii">https://leetcode-cn.com/problems/path-sum-ii</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val &#x3D; x</span><br><span class="line">#         self.left &#x3D; None</span><br><span class="line">#         self.right &#x3D; None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def pathSum(self, root: TreeNode, sum: int) -&gt; List[List[int]]:</span><br><span class="line">        self.res &#x3D; []</span><br><span class="line">        self.sum &#x3D; sum</span><br><span class="line">        def dfs(root , path , sum_num):</span><br><span class="line">            if root is None :</span><br><span class="line">                return </span><br><span class="line">            </span><br><span class="line">            path &#x3D; path + [root.val]</span><br><span class="line">            sum_num &#x3D; sum_num + root.val</span><br><span class="line">           </span><br><span class="line">            if  root.left  is None and root.right  is None :</span><br><span class="line">                </span><br><span class="line">                if sum_num &#x3D;&#x3D; self.sum :</span><br><span class="line">                    self.res.append(path)</span><br><span class="line">                    return</span><br><span class="line">               </span><br><span class="line">            else :</span><br><span class="line">                dfs(root.left , path , sum_num)</span><br><span class="line">                dfs(root.right , path , sum_num)</span><br><span class="line"></span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        dfs(root, [] ,0)</span><br><span class="line">        return self.res </span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/28/%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8CII/">展开全文 >></a>
         </p>
       
 
