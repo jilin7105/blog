@@ -155,6 +155,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="24.-两两交换链表中的节点" class="article article-type-24.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/10/14/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">两两交换链表中的节点</a>
+    </h1>
+  
+
+        
+        <a href="/year/10/14/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/" class="archive-article-date">
+  	<time datetime="2020-10-14T06:12:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
+<p>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>递归</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Definition for singly-linked list.</span><br><span class="line"># class ListNode:</span><br><span class="line">#     def __init__(self, val&#x3D;0, next&#x3D;None):</span><br><span class="line">#         self.val &#x3D; val</span><br><span class="line">#         self.next &#x3D; next</span><br><span class="line">class Solution(object):</span><br><span class="line">    def swapPairs(self, head):</span><br><span class="line">        if head and head.next:</span><br><span class="line">            head.next.next, head.next, head &#x3D; head, self.swapPairs(head.next.next), head.next</span><br><span class="line">        return head</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>迭代，增加一个空的头</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def swapPairs(self, head):</span><br><span class="line">        thead &#x3D; ListNode(-1)</span><br><span class="line">        thead.next &#x3D; head</span><br><span class="line">        pre &#x3D; thead</span><br><span class="line">        while head and head.next:   #空节点或者单节点退出</span><br><span class="line">            first &#x3D; head</span><br><span class="line">            second &#x3D; head.next</span><br><span class="line">            pre.next &#x3D; second       #交换两节点</span><br><span class="line">            first.next &#x3D; second.next</span><br><span class="line">            second.next &#x3D; first</span><br><span class="line"></span><br><span class="line">            pre &#x3D; first             #继续遍历后续节点</span><br><span class="line">            head &#x3D; first.next</span><br><span class="line">        return thead.next</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/10/14/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="1002.-查找常用字符" class="article article-type-1002.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -903,87 +987,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="面试题-消失的数字" class="article article-type-面试题  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/28/%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">消失的数字</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/28/%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2020-09-28T09:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>数组nums包含从0到n的所有整数，但其中缺了一个。请编写代码找出那个缺失的整数。你有办法在O(n)时间内完成吗？</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>示例 1：</p>
-<p>输入：[3,0,1]<br>输出：2</p>
-<p>示例 2：</p>
-<p>输入：[9,6,4,2,3,5,7,0,1]<br>输出：8</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>没啥好说的吧 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def missingNumber(self, nums: List[int]) -&gt; int:</span><br><span class="line">        len_num &#x3D; int(len(nums))</span><br><span class="line">       </span><br><span class="line">        return  int((1+len_num) * len_num&#x2F;2  - sum(nums))</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/28/%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">展开全文 >></a>
         </p>
       
 
