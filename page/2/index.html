@@ -155,6 +155,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="145.-二叉树的后序遍历" class="article article-type-145.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树的后序遍历</a>
+    </h1>
+  
+
+        
+        <a href="/year/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2020-09-29T08:35:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个二叉树，返回它的 后序 遍历。</p>
+<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
+<li><p>递归遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># Definition for a binary tree node.</span><br><span class="line"># class TreeNode:</span><br><span class="line">#     def __init__(self, val&#x3D;0, left&#x3D;None, right&#x3D;None):</span><br><span class="line">#         self.val &#x3D; val</span><br><span class="line">#         self.left &#x3D; left</span><br><span class="line">#         self.right &#x3D; right</span><br><span class="line">class Solution:</span><br><span class="line">    def postorderTraversal(self, root: TreeNode) -&gt; List[int]:</span><br><span class="line">        self.res &#x3D; []</span><br><span class="line">        def dfs(root):</span><br><span class="line">            if root is None:</span><br><span class="line">                return</span><br><span class="line">            dfs(root.left)</span><br><span class="line">            dfs(root.right)</span><br><span class="line">            self.res.append(root.val)</span><br><span class="line"></span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        dfs(root)</span><br><span class="line">        return self.res</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>迭代遍历</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def postorderTraversal(self, root: TreeNode) -&gt; List[int]:</span><br><span class="line">        if root&#x3D;&#x3D;None:</span><br><span class="line">            return []</span><br><span class="line">        stack&#x3D;[root]</span><br><span class="line">        res&#x3D;[]</span><br><span class="line">        while stack:</span><br><span class="line">            s&#x3D;stack.pop()</span><br><span class="line">            res.append(s.val)</span><br><span class="line">            if s.left:</span><br><span class="line">                stack.append(s.left)</span><br><span class="line">            if s.right:</span><br><span class="line">                stack.append(s.right)</span><br><span class="line">        return res[::-1]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/09/29/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="面试题-消失的数字" class="article article-type-面试题  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -844,92 +925,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/09/20/%E5%AD%90%E9%9B%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="79.-单词搜索" class="article article-type-79.  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/18/%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">单词搜索</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/18/%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="archive-article-date">
-  	<time datetime="2020-09-18T02:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个二维网格和一个单词，找出该单词是否存在于网格中。</p>
-<p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search">https://leetcode-cn.com/problems/word-search</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>board =<br>[<br>  [‘A’,’B’,’C’,’E’],<br>  [‘S’,’F’,’C’,’S’],<br>  [‘A’,’D’,’E’,’E’]<br>]</p>
-<p>给定 word = “ABCCED”, 返回 true<br>给定 word = “SEE”, 返回 true<br>给定 word = “ABCB”, 返回 false</p>
-<h3 id="解"><a href="#解" class="headerlink" title="解"></a>解</h3><ol>
-<li>先提速判断， 判断需要的元素 是不是都存在于 给定的字母表里</li>
-<li>元素判断通过后， 寻找第一个元素的位置  ，行列分别循环找到 S的位置1,3</li>
-<li>从1，3位置开始回溯，每次都判断上下左右四个位置是否有下一个值</li>
-<li>如果有就继续递归，如果没有就返回false</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def exist(self, board: List[List[str]], word: str) -&gt; bool:</span><br><span class="line">        m &#x3D; len(board)</span><br><span class="line">        if not m:</span><br><span class="line">            return False</span><br><span class="line">        n &#x3D; len(board[0])</span><br><span class="line">        # 最主要八行提速</span><br><span class="line">        ans &#x3D; []</span><br><span class="line">        for b in board:</span><br><span class="line">            ans +&#x3D; b</span><br><span class="line">        need &#x3D; Counter(word)</span><br><span class="line">        ans &#x3D; Counter(ans)</span><br><span class="line">        for k, v in need.items():</span><br><span class="line">            if v &gt; ans[k]:</span><br><span class="line">                return False</span><br><span class="line"></span><br><span class="line">        ans &#x3D; [[False] * n for _ in range(m)]</span><br><span class="line"></span><br><span class="line">        def back(i, j, word):</span><br><span class="line">            if not word:</span><br><span class="line">                return True</span><br><span class="line">            # 定义上下左右四个行走方向</span><br><span class="line">            for (x, y) in [(0, -1), (-1, 0), (0, 1), (1, 0)]:</span><br><span class="line">                cur_i, cur_j &#x3D; i + x, j + y</span><br><span class="line">                # 越界，忽略</span><br><span class="line">                if cur_i &lt; 0 or cur_i &gt;&#x3D; m or cur_j &lt; 0 or cur_j &gt;&#x3D; n:</span><br><span class="line">                    continue</span><br><span class="line">                # 如果当前位置不等于word首字母 或是 已经使用过的元素，忽略</span><br><span class="line">                if board[cur_i][cur_j] !&#x3D; word[0] or ans[cur_i][cur_j] &#x3D;&#x3D; True:</span><br><span class="line">                    continue</span><br><span class="line">                ans[cur_i][cur_j] &#x3D; True</span><br><span class="line">                if back(cur_i, cur_j, word[1:]):</span><br><span class="line">                    return True</span><br><span class="line">                ans[cur_i][cur_j] &#x3D; False</span><br><span class="line">                # print(ans, word)</span><br><span class="line">            return False</span><br><span class="line"></span><br><span class="line">        for i in range(m):</span><br><span class="line">            for j in range(n):</span><br><span class="line">                if board[i][j] &#x3D;&#x3D; word[0]:</span><br><span class="line">                    # 将该元素标记为已使用</span><br><span class="line">                    ans[i][j] &#x3D; True</span><br><span class="line">                    if back(i, j, word[1:]):</span><br><span class="line">                        return True</span><br><span class="line">                    # 回溯</span><br><span class="line">                    ans[i][j] &#x3D; False</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/18/%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">展开全文 >></a>
         </p>
       
 
