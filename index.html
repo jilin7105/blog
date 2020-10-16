@@ -155,6 +155,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="116.-填充每个节点的下一个右侧节点指针" class="article article-type-116.  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/year/10/16/%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/">填充每个节点的下一个右侧节点指针</a>
+    </h1>
+  
+
+        
+        <a href="/year/10/16/%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/" class="archive-article-date">
+  	<time datetime="2020-10-16T09:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给定一个完美二叉树，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：</p>
+<p>struct Node {<br>  int val;<br>  Node *left;<br>  Node *right;<br>  Node *next;<br>}<br>填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。</p>
+<p>初始状态下，所有 next 指针都被设置为 NULL。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node">https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
+<li>之前好像做过这个题，看了看写法一摸一样 ，不忘初心啊哈哈哈哈 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line"># Definition for a Node.</span><br><span class="line">class Node:</span><br><span class="line">    def __init__(self, val: int &#x3D; 0, left: &#39;Node&#39; &#x3D; None, right: &#39;Node&#39; &#x3D; None, next: &#39;Node&#39; &#x3D; None):</span><br><span class="line">        self.val &#x3D; val</span><br><span class="line">        self.left &#x3D; left</span><br><span class="line">        self.right &#x3D; right</span><br><span class="line">        self.next &#x3D; next</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def connect(self, root: &#39;Node&#39;) -&gt; &#39;Node&#39;:</span><br><span class="line">        self.dic &#x3D; &#123;&#125;</span><br><span class="line">        def dfs(root ,ceng ):</span><br><span class="line">            if root is None :</span><br><span class="line">                return </span><br><span class="line">            </span><br><span class="line">            dfs(root.left, ceng+1 )</span><br><span class="line">            if ceng  in self.dic :</span><br><span class="line">                self.dic[ceng][-1].next &#x3D; root</span><br><span class="line">                self.dic[ceng] +&#x3D; [root]</span><br><span class="line">            else :</span><br><span class="line">                self.dic[ceng] &#x3D; [root]</span><br><span class="line">            dfs(root.right, ceng+1 )</span><br><span class="line">            return </span><br><span class="line"></span><br><span class="line">        dfs(root,0)</span><br><span class="line">        return root</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/year/10/16/%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="977.-有序数组的平方" class="article article-type-977.  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -902,93 +982,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/year/10/02/%E5%AE%9D%E7%9F%B3%E4%B8%8E%E7%9F%B3%E5%A4%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="1562.-查找大小为 M 的最新分组" class="article article-type-1562.  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/year/09/30/%E6%9F%A5%E6%89%BE%E5%A4%A7%E5%B0%8F%E4%B8%BA%20M%20%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%86%E7%BB%84/">1562. 查找大小为 M 的最新分组</a>
-    </h1>
-  
-
-        
-        <a href="/year/09/30/%E6%9F%A5%E6%89%BE%E5%A4%A7%E5%B0%8F%E4%B8%BA%20M%20%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%86%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-09-30T10:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>给你一个数组 arr ，该数组表示一个从 1 到 n 的数字排列。有一个长度为 n 的二进制字符串，该字符串上的所有位最初都设置为 0 。</p>
-<p>在从 1 到 n 的每个步骤 i 中（假设二进制字符串和 arr 都是从 1 开始索引的情况下），二进制字符串上位于位置 arr[i] 的位将会设为 1 。</p>
-<p>给你一个整数 m ，请你找出二进制字符串上存在长度为 m 的一组 1 的最后步骤。一组 1 是一个连续的、由 1 组成的子串，且左右两边不再有可以延伸的 1 。</p>
-<p>返回存在长度 恰好 为 m 的 一组 1  的最后步骤。如果不存在这样的步骤，请返回 -1 。</p>
-<p> </p>
-<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-latest-group-of-size-m">https://leetcode-cn.com/problems/find-latest-group-of-size-m</a></p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>输入：arr = [3,5,1,2,4], m = 1<br>输出：4<br>解释：<br>步骤 1：”00100”，由 1 构成的组：[“1”]<br>步骤 2：”00101”，由 1 构成的组：[“1”, “1”]<br>步骤 3：”10101”，由 1 构成的组：[“1”, “1”, “1”]<br>步骤 4：”11101”，由 1 构成的组：[“111”, “1”]<br>步骤 5：”11111”，由 1 构成的组：[“11111”]<br>存在长度为 1 的一组 1 的最后步骤是步骤 4 。</p>
-<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><ol>
-<li>以[3,5,1,2,4]为例  维护一个数组  [[1,5]]</li>
-<li>从最后一个 元素开始 4 进入时 ，在1，5之间 数组拆分为[[1,3],[5]] ,其中5 符合条件 ，返回len -1 也就是4</li>
-<li>以arr = [3,1,5,4,2], m = 2 为例 </li>
-<li>第一次 2 进入时 [1,5]=&gt; [[1],[3,5]] 其中[1]  小于目标长度，删除这个区块。[3,5]</li>
-<li>第二次 4 进入时  [[3,5]] =&gt; [[3],[5]] 都小于目标长度返回 -1</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findLatestStep(self, arr, m):</span><br><span class="line">        len_i &#x3D; len(arr)</span><br><span class="line">        res &#x3D; [[1,len_i]]</span><br><span class="line">        if len_i &#x3D;&#x3D; m :return len_i</span><br><span class="line">        while len_i &gt; 0  and len(res)&gt;0:</span><br><span class="line">        </span><br><span class="line">            len_i -&#x3D; 1</span><br><span class="line">            for item  in range(len(res)):</span><br><span class="line">               </span><br><span class="line">                if  arr[len_i] &gt;&#x3D;res[item][0]   and  arr[len_i] &lt;&#x3D; res[item][1] :</span><br><span class="line"></span><br><span class="line">                    res_before &#x3D; res[:item]</span><br><span class="line">                    res_after &#x3D; res[item+1:]</span><br><span class="line">                    if arr[len_i] - res[item][0] &#x3D;&#x3D; m :</span><br><span class="line">                        return len_i</span><br><span class="line">                    if arr[len_i] - res[item][0] &gt; m :</span><br><span class="line">                        res_before.append([res[item][0],arr[len_i]-1])</span><br><span class="line"></span><br><span class="line">                    if res[item][1] - arr[len_i] &#x3D;&#x3D; m :</span><br><span class="line">                        return len_i</span><br><span class="line">                    if res[item][1] - arr[len_i] &gt; m :</span><br><span class="line">                        res_before.append([arr[len_i]+1 , res[item][1] ])</span><br><span class="line"></span><br><span class="line">                    res &#x3D; res_before + res_after</span><br><span class="line">                    break;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return -1</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">letcode;每日一道算法题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/year/09/30/%E6%9F%A5%E6%89%BE%E5%A4%A7%E5%B0%8F%E4%B8%BA%20M%20%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%86%E7%BB%84/">展开全文 >></a>
         </p>
       
 
